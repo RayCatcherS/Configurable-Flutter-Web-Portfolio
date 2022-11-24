@@ -28,7 +28,7 @@ class FontStyles {
     fontFamily: 'Melodi'
   );
   static const TextStyle melodiMediumSubTitle = TextStyle(
-    fontSize: 20,
+    fontSize: 22.5,
     color: Colors.white,
     fontWeight: FontWeight.w700,
     fontFamily: 'Melodi'

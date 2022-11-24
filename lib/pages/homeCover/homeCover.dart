@@ -22,49 +22,55 @@ class HomeCover extends StatelessWidget {
         ),
         Positioned.fill(
           child: Container(
-            color: coverColor!.withOpacity(0.35),
+            color: Colors.black45,
+            child: Container(
+              color: coverColor!.withOpacity(0.35),
+            ),
           )
         ),
         Positioned.fill(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "STEFANO ROMANELLI",
-                style: FontStyles.melodiBoldTitle,
-              ),
-              Text(
-                "GAME DESIGNING / GAME PROGRAMMING",
-                style: FontStyles.melodiMediumSubTitle,
-              ),
-              SizedBox(height: kDefaultPadding * 3),
-              Container(
-                constraints: BoxConstraints(
-                  maxWidth: 500
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "STEFANO ROMANELLI",
+                  style: FontStyles.melodiBoldTitle,
                 ),
-                child: Text(
-                  "Hello! Il mio nome è Stefano e sono attualmente un studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
-                  style: FontStyles.melodiMedium,
+                Text(
+                  "GAME DESIGNING / GAME PROGRAMMING",
+                  style: FontStyles.melodiMediumSubTitle,
                 ),
-              ),
-              SizedBox(height: kDefaultPadding * 3),
-              Container(
-                constraints: BoxConstraints(
-                  maxWidth: 500
+                SizedBox(height: kDefaultPadding * 4),
+                Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 650
+                  ),
+                  child: Text(
+                    "Hello! Il mio nome è Stefano e sono attualmente un studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
+                    style: FontStyles.melodiMedium,
+                  ),
                 ),
-                child: Text(
-                  "In questo portfolio puoi trovare i miei progetti professionali e personali a cui ho lavorato.",
-                  style: FontStyles.melodiMedium,
+                SizedBox(height: kDefaultPadding * 3),
+                Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 650
+                  ),
+                  child: Text(
+                    "In questo portfolio puoi trovare i miei progetti professionali e personali a cui ho lavorato.",
+                    style: FontStyles.melodiMedium,
+                  ),
                 ),
-              ),
-              SizedBox(height: kDefaultPadding * 2),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.email, color: Colors.white,)
-                ],
-              )
-            ],
+                SizedBox(height: kDefaultPadding * 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.email, color: Colors.white,)
+                  ],
+                )
+              ],
+            ),
           )
         ),
         Container(
