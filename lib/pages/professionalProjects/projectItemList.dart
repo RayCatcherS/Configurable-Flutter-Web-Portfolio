@@ -1,4 +1,5 @@
 import 'dart:js';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:sr_portfolio/UI/responsive.dart';
@@ -27,82 +28,167 @@ class ProjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Stack(
+    return Column(
       children: [
+        Stack(
+          children: [
 
-        // project background 
-        Positioned.fill(
-          child: Image.network(
-              projectItemData.backgroundCoverImage,
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-          ),
-        ),
-
-        // image background color filter
-        Positioned.fill(
-          child: Container(
-            color: Colors.black.withOpacity(0.5),
-          )
-        ),
-
-        // project item render
-        Container(
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Responsive.isDesktop(context) ?
-                kDefaultDesktopPagePadding : 
-                Responsive.isTablet(context) ?
-                kDefaultTabletPagePadding : kDefaultMobilePagePadding
+            // cover project background 
+            Positioned.fill(
+              child: Image.network(
+                  projectItemData.backgroundCoverImage,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
               ),
+            ),
+
+            // cover image background color filter
+            Positioned.fill(
               child: Container(
-                constraints: BoxConstraints(
-                  maxWidth: kMaxWidthPage
+                color: Colors.black.withOpacity(0.5),
+              )
+            ),
+
+            // project item cover render
+            Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Responsive.isDesktop(context) ?
+                  kDefaultDesktopPagePadding : 
+                  Responsive.isTablet(context) ?
+                  kDefaultTabletPagePadding : kDefaultMobilePagePadding
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 8.5),
-                  child: Column(
-                    children: [
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: kMaxWidthPage
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 8.5),
+                    child: Column(
+                      children: [
 
-                      if(!Responsive.isMobile(context))
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          
-                          Expanded(
-                            flex: textContentFlexSize,
-                            child: getCoverTextWidget(context),
-                          ),
-                          Spacer(),
-                          Expanded(
-                            flex: mediaFlexSize,
-                            child: getMediaWidget()
-                          ),
-                          
-                        ],
-                      ),
+                        if(!Responsive.isMobile(context))
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            
+                            Expanded(
+                              flex: textContentFlexSize,
+                              child: getCoverTextWidget(context),
+                            ),
+                            Spacer(),
+                            Expanded(
+                              flex: mediaFlexSize,
+                              child: getCoverMediaWidget()
+                            ),
+                            
+                          ],
+                        ),
 
-                      if(Responsive.isMobile(context))
-                      Column(
-                        children: [
-                          getMediaWidget(),
-                          SizedBox(height: kDefaultPadding * 3),
-                          getCoverTextWidget(context) 
-                        ],
-                      )
-                    ],
+                        if(Responsive.isMobile(context))
+                        Column(
+                          children: [
+                            getCoverMediaWidget(),
+                            SizedBox(height: kDefaultPadding * 3),
+                            getCoverTextWidget(context) 
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+        // project description and mansions
+        Stack(
+          children: [
+
+            // background project description 
+            Positioned.fill(
+              child: ClipRRect(
+                child: ImageFiltered(
+                  imageFilter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                  child: Image.network(
+                      
+                      projectItemData.backgroundCoverImage,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
                   ),
                 ),
               ),
             ),
-          ),
-        ),
+
+            // description image background color filter
+            Positioned.fill(
+              child: Container(
+                color: Colors.black.withOpacity(0.1),
+              )
+            ),
+
+            Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Responsive.isDesktop(context) ?
+                  kDefaultDesktopPagePadding : 
+                  Responsive.isTablet(context) ?
+                  kDefaultTabletPagePadding : kDefaultMobilePagePadding
+                ),
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: kMaxWidthPage
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 8.5),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+
+                              // project mansion description
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      projectItemData.professionalRoles,
+                                      style: FontStyles.melodiMediumSubTitle,
+                                    )
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: kDefaultPadding * 1.5),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      projectItemData.description,
+                                      style: FontStyles.melodiLight,
+                                    )
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Container()
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
 
-  Widget getMediaWidget() {
+  Widget getCoverMediaWidget() {
     if(projectItemData.itemType == ItemType.urlImage) {
       return AspectRatio(
         aspectRatio: 15/9,
