@@ -251,12 +251,11 @@ class ProjectItem extends StatelessWidget {
                                   }
                                   
                                 },
-                                //Debug
-                                /*child: Container(
+                                child: Container(
                                   height: 35,
                                   width: 80,
-                                  color: Colors.red.withOpacity(0.7),
-                                ),*/
+                                  //color: Colors.red.withOpacity(0.7),
+                                ),
                               ),
                             ),
                           ],
