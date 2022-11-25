@@ -22,20 +22,19 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.18.4 <3.0.0'
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
+
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
   
-  #services
+  # services
   provider: ^5.0.0
+
+
+  # icons
+  font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
   flutter_test:
@@ -48,18 +47,25 @@ dev_dependencies:
 
 flutter:
   fonts:
-    - family: Melodi
+    - family: MelodiMono
       fonts:
-        - asset: fonts/BLMelody-ExtraLight.otf
-          weight: 100
-        - asset: fonts/BLMelody-Light.otf
-          weight: 200
         - asset: fonts/BLMelodyMono-Regular.otf
           weight: 400
         - asset: fonts/BLMelodyMono-Medium.otf
-          weight: 700
+          weight: 500
+        
+    - family: Melodi
+      fonts:
+        - asset: fonts/BLMelody-ExtraLight.otf
+          weight: 200
+        - asset: fonts/BLMelody-Light.otf
+          weight: 300
+        - asset: fonts/BLMelody-Regular.otf
+          weight: 400
+        - asset: fonts/BLMelody-Medium.otf
+          weight: 500
         - asset: fonts/BLMelody-SemiBold.otf
-          weight: 800
+          weight: 600
   uses-material-design: true
 
   

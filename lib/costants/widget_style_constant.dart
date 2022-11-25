@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 const double kDefaultPadding = 10;
-const double kDefaultDesktopPagePadding = 60;
+const double kDefaultDesktopPagePadding = 95;
+const double kDefaultTabletPagePadding = 80;
+const double kDefaultMobilePagePadding = 30;
 
 const double kMaxWidth = 1800.0;
-const double kMaxWidthHostPreviewPage = 1200.0;
+const double kMaxWidthPage = 1400;
 
 double kMaxFilterBarWidth = 800;
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'homeCover/homeCover.dart';
+import '../../pageElements/footer/footer.dart';
+import '../homeCover/homeCover.dart';
+import '../professionalProjects/professionalProjects.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,12 +10,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 22, 22, 22),
+      backgroundColor: Color.fromARGB(255, 29, 29, 29),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HomeCover()
-            
+            HomeCover(),
+            ProfessionalProjects(),
+            PageFooter()
           ],
         ),
       ),
