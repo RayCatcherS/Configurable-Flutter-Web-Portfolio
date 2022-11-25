@@ -1,3 +1,6 @@
+import 'package:sr_portfolio/appFunctions.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+
 class ProjectItemData {
   late final String _title;
   late final String _description;
@@ -15,6 +18,9 @@ class ProjectItemData {
   late final YouTubeVideo? _youTubeVideo;
   late final String? _videoURL;
   late final String? _imageURL;
+
+  late final YoutubePlayerController _yTcontroller;
+  YoutubePlayerController get yTcontroller { return _yTcontroller;}
 
   ItemType get itemType { return _itemType;}
   String get title {return _title;}
@@ -64,17 +70,32 @@ class ProjectItemData {
 
     _itemType = personalItemType;
     _youTubeVideo = youTubeVideo;
+    if(_youTubeVideo != null) {
+      //  _youTubeVideo!.videoId
+      _yTcontroller = YoutubePlayerController()..onInit = (){
+        _yTcontroller.cueVideoById(videoId: _youTubeVideo!.videoId, startSeconds: 0);
+      };
+
+    }
+
     _videoURL = videoURL;
     _imageURL = imageURL;
+  }
+  void openYoutubeVideoPage() {
+    AppFunctions.openPageInANewTab("https://youtu.be/${_youTubeVideo!.videoId}");
   }
 }
 
 
 class YouTubeVideo {
   late final String _videoId;
-
-  YouTubeVideo({required String videoId}) {
+  String get videoId {return _videoId;}
+  YouTubeVideo({
+    required String videoId
+  }) {
     _videoId = videoId;
+
+    
   }
 }
 

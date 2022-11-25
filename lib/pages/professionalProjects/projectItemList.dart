@@ -1,15 +1,18 @@
 import 'dart:js';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sr_portfolio/UI/responsive.dart';
 import 'package:sr_portfolio/appFunctions.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../costants/font_styles.dart';
 import '../projectsItem/data/projectItemData.dart';
 
-
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 
 class ProjectItem extends StatelessWidget {
@@ -79,7 +82,7 @@ class ProjectItem extends StatelessWidget {
                             Spacer(),
                             Expanded(
                               flex: mediaFlexSize,
-                              child: getCoverMediaWidget()
+                              child: getCoverMediaWidget(context)
                             ),
                             
                           ],
@@ -88,7 +91,7 @@ class ProjectItem extends StatelessWidget {
                         if(Responsive.isMobile(context))
                         Column(
                           children: [
-                            getCoverMediaWidget(),
+                            getCoverMediaWidget(context),
                             SizedBox(height: kDefaultPadding * 3),
                             getCoverTextWidget(context) 
                           ],
@@ -188,7 +191,7 @@ class ProjectItem extends StatelessWidget {
     );
   }
 
-  Widget getCoverMediaWidget() {
+  Widget getCoverMediaWidget(BuildContext context) {
     if(projectItemData.itemType == ItemType.urlImage) {
       return AspectRatio(
         aspectRatio: 15/9,
@@ -197,19 +200,78 @@ class ProjectItem extends StatelessWidget {
         ),
       );
     } else if(projectItemData.itemType == ItemType.urlVideo) {
-          return AspectRatio(
-            aspectRatio: 15/9,
-            child: Container(
-              color: Colors.red,
-            ),
-          );
+      return AspectRatio(
+        aspectRatio: 15/9,
+        child: Container(
+          color: Colors.red,
+        ),
+      );
     } else if(projectItemData.itemType == ItemType.youTubeVideo) {
-          return AspectRatio(
-            aspectRatio: 15/9,
-            child: Container(
-              color: Colors.red,
+      return AspectRatio(
+        aspectRatio: 15/9,
+        child: Stack(
+          children: [
+            YoutubeValueBuilder(
+              controller: projectItemData.yTcontroller, // This can be omitted, if using `YoutubePlayerControllerProvider`
+              builder: (context, value) {
+                  return Stack(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 15 / 9,
+                        child: YoutubePlayerScaffold(
+                          controller: projectItemData.yTcontroller,
+                          builder: (context, player) {
+                            return player;
+                          },
+                        ),
+                      ),
+                      PointerInterceptor(
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            
+                            InkWell(
+                              onTap: () {
+                                if(value.playerState == PlayerState.playing) {
+                                  projectItemData.yTcontroller.pauseVideo();
+                                } else {
+                                  projectItemData.yTcontroller.playVideo();
+                                }
+
+                              },
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: InkWell(
+                                onTap: () {
+
+                                  if(value.playerState == PlayerState.playing || value.playerState == PlayerState.paused) {
+                                    projectItemData.yTcontroller.pauseVideo();
+                                    projectItemData.openYoutubeVideoPage();
+                                  }
+                                  
+                                },
+                                //Debug
+                                /*child: Container(
+                                  height: 35,
+                                  width: 80,
+                                  color: Colors.red.withOpacity(0.7),
+                                ),*/
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+              },
             ),
-          );
+            
+            
+          ],
+        ),
+      );
+
     } else {
       return Text("Media Error");
     }
