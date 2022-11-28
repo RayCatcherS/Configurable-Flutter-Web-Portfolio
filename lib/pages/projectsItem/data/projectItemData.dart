@@ -4,6 +4,8 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 class ProjectItemData {
   late final String _title;
   late final String _description;
+  late final String _gameAssetImage;
+
   late final String _professionalRoles;
   late final String _platforms;
   late final Company _company;
@@ -15,9 +17,9 @@ class ProjectItemData {
   late final String? _callToActionUrl;
 
   late final ItemType _itemType;
-  late final YouTubeVideo? _youTubeVideo;
-  late final String? _videoURL;
-  late final String? _imageURL;
+  late final YouTubeVideo? _youTubePreviewVideo;
+  late final String? _videoPreviewURL;
+  late final String? _imagePreviewURL;
 
   late final YoutubePlayerController _yTcontroller;
   YoutubePlayerController get yTcontroller { return _yTcontroller;}
@@ -25,6 +27,10 @@ class ProjectItemData {
   ItemType get itemType { return _itemType;}
   String get title {return _title;}
   String get description {return _description;}
+  String get gameAssetImage {return _gameAssetImage;}
+
+
+
   String get platforms {return _platforms;}
   String get professionalRoles {return _professionalRoles;}
   Company get company {return _company;}
@@ -35,10 +41,15 @@ class ProjectItemData {
   String get callToActionText {return _callToActionText == null ? "" : _callToActionText!;}
   String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
 
+  String get imagePreviewURL {return _imagePreviewURL!;}
+
+
   ProjectItemData({
     required String title,
     required String description,
-    required ItemType personalItemType,
+    required String gameAssetImage,
+
+    required ItemType itemType,
     required String professionalRoles,
     required String platforms,
     required Company company,
@@ -56,6 +67,8 @@ class ProjectItemData {
 
     _title = title;
     _description = description;
+    _gameAssetImage = gameAssetImage;
+
     _professionalRoles = professionalRoles;
     _platforms = platforms;
     _company = company;
@@ -68,21 +81,21 @@ class ProjectItemData {
     _callToActionUrl = callToActionUrl;
 
 
-    _itemType = personalItemType;
-    _youTubeVideo = youTubeVideo;
-    if(_youTubeVideo != null) {
+    _itemType = itemType;
+    _youTubePreviewVideo = youTubeVideo;
+    if(_youTubePreviewVideo != null) {
       //  _youTubeVideo!.videoId
       _yTcontroller = YoutubePlayerController()..onInit = (){
-        _yTcontroller.cueVideoById(videoId: _youTubeVideo!.videoId, startSeconds: 0);
+        _yTcontroller.cueVideoById(videoId: _youTubePreviewVideo!.videoId, startSeconds: 0);
       };
 
     }
 
-    _videoURL = videoURL;
-    _imageURL = imageURL;
+    _videoPreviewURL = videoURL;
+    _imagePreviewURL = imageURL;
   }
   void openYoutubeVideoPage() {
-    AppFunctions.openPageInANewTab("https://youtu.be/${_youTubeVideo!.videoId}");
+    AppFunctions.openPageInANewTab("https://youtu.be/${_youTubePreviewVideo!.videoId}");
   }
 }
 

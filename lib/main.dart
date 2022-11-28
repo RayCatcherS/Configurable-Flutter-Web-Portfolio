@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sr_portfolio/pages/personalProjects/model/personalProjectsProviderState.dart';
 import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
 
-import 'pages/homeCover/homeCoverProviderState.dart';
-import 'pages/view/homePage.dart';
+import 'pages/homePage/homeCover/homeCoverProviderState.dart';
+import 'pages/homePage/view/homePage.dart';
 import 'pages/model/homePageProviderState.dart';
 
 void main() {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => HomePageProvider()),
         ChangeNotifierProvider(create: (_) => HomeCoverProviderState()),
-        ChangeNotifierProvider(create: (_) => ProfessionalProjectProviderState()),
+        ChangeNotifierProvider(create: (_) => ProfessionalProjectsProviderState()),
+        ChangeNotifierProvider(create: (_) => PersonalProjectsProviderState()),
       ],
       builder: ((context, child) {
         return MaterialApp(

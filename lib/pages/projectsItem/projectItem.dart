@@ -10,7 +10,7 @@ import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../costants/font_styles.dart';
-import '../projectsItem/data/projectItemData.dart';
+import 'data/projectItemData.dart';
 
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 
@@ -144,41 +144,24 @@ class ProjectItem extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 8.5),
-                    child: Row(
+                    child: 
+                    !Responsive.isMobile(context) ?
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Column(
-                            children: [
-
-                              // project mansion description
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      projectItemData.professionalRoles,
-                                      style: FontStyles.melodiMediumSubTitle,
-                                    )
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: kDefaultPadding * 1.5),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      projectItemData.description,
-                                      style: FontStyles.melodiLight,
-                                    )
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                          child: getProjectInformation()
                         ),
-
                         Expanded(
-                          child: Container()
+                          child: getProjectGameAssetPhoto() 
                         )
+                      ],
+                    ) : Column(
+                      children: [
+                        getProjectGameAssetPhoto(),
+                        SizedBox(height: kDefaultPadding * 3),
+                        getProjectInformation()
+                        
                       ],
                     ),
                   ),
@@ -195,8 +178,20 @@ class ProjectItem extends StatelessWidget {
     if(projectItemData.itemType == ItemType.urlImage) {
       return AspectRatio(
         aspectRatio: 15/9,
-        child: Container(
-          color: Colors.red,
+        child: Stack(
+          children: [
+            Center(
+              child: CircularProgressIndicator(
+
+              )
+            ),
+            Center(
+              child: Image.network(
+                projectItemData.imagePreviewURL,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
         ),
       );
     } else if(projectItemData.itemType == ItemType.urlVideo) {
@@ -275,7 +270,6 @@ class ProjectItem extends StatelessWidget {
       return Text("Media Error");
     }
   }
-
   Widget getCoverTextWidget(BuildContext context) {
     return Column(
       children: [
@@ -356,4 +350,49 @@ class ProjectItem extends StatelessWidget {
       ],
     );
   }
+
+
+  Widget getProjectInformation() {
+    return Column(
+      children: [
+
+        // project mansion description
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                projectItemData.professionalRoles,
+                style: FontStyles.melodiMediumSubTitle,
+              )
+            ),
+          ],
+        ),
+        SizedBox(height: kDefaultPadding * 1.5),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                projectItemData.description,
+                style: FontStyles.melodiLight,
+              )
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+  Widget getProjectGameAssetPhoto() {
+    return Center(
+      child: AspectRatio(
+        aspectRatio: 20/9,
+        child: Image.network(
+                          
+            projectItemData.gameAssetImage,
+            fit: BoxFit.fitHeight,
+            alignment: Alignment.center,
+        ),
+      ),
+    );
+  }
+
 }

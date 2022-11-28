@@ -6,12 +6,6 @@
             "deviceId": "chrome",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "-d",
-                "chrome",
-                "--web-renderer",
-                "html",
-            ]
         }
     ]
 }

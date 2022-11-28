@@ -4,11 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:sr_portfolio/UI/responsive.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/homeCover/homeCoverProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homeCover/homeCoverProviderState.dart';
 
 import 'contactBar.dart';
 
 class HomeCover extends StatelessWidget {
+
   HomeCover({Key? key}) : super(key: key);
 
   Color? coverColor = Colors.purple[900];

@@ -5,17 +5,19 @@ import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
 import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/projectsItem/projectItem.dart';
 
-import '../projectsItem/projectItem.dart';
+import 'model/personalProjectsProviderState.dart';
 
-class ProfessionalProjects extends StatelessWidget {
-  const ProfessionalProjects({Key? key}) : super(key: key);
+
+class PersonalProjects extends StatelessWidget {
+  const PersonalProjects({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
     List<ProjectItemData> projects 
-    = context.read<ProfessionalProjectsProviderState>().personalProjects;
+    = context.read<PersonalProjectsProviderState>().personalProjects;
 
     return Container(
       
@@ -39,7 +41,7 @@ class ProfessionalProjects extends StatelessWidget {
                     children: const [
                       Expanded(
                         child: Text(
-                            "Professional Projects",
+                            "Personal Projects",
                             style: FontStyles.melodiLightTitle,
                           ),
                       ),
