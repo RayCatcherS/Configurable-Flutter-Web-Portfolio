@@ -13,66 +13,66 @@ import 'model/personalProjectsProviderState.dart';
 class PersonalProjects extends StatelessWidget {
   const PersonalProjects({Key? key}) : super(key: key);
 
+  static List<Widget> personalProjectsList(List<ProjectItemData> projects, BuildContext context) {
+    List<Widget> widgetList = [
+      const SizedBox(height: kDefaultPadding * 6),
+      Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Responsive.isDesktop(context) ?
+          kDefaultDesktopPagePadding : 
+          Responsive.isTablet(context) ?
+          kDefaultTabletPagePadding : kDefaultMobilePagePadding
+        ),
+        child: Container(
+          constraints: BoxConstraints(
+            maxWidth: kMaxWidthPage
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: const [
+                  Expanded(
+                    child: Text(
+                        "Personal Projects",
+                        style: FontStyles.melodiLightTitle,
+                      ),
+                  ),
+                ],
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                    child: Text(
+                        "A sample of the game titles that I've worked on over the years",
+                        style: FontStyles.melodiLightSubTitle,
+                      ),
+                  ),
+                ],
+              ),
+            ],
+          )
+        ),
+      ),
+      const SizedBox(height: kDefaultPadding * 8),
+    ];
+
+    for(int i = 0; i < projects.length; i++) {
+      widgetList.add(
+        ProjectItem(projectItemData: projects[i])
+      );
+    }
+
+    return widgetList;
+  }
+
   @override
   Widget build(BuildContext context) {
 
     List<ProjectItemData> projects 
     = context.read<PersonalProjectsProviderState>().personalProjects;
 
-    return Container(
-      
-      child: Column(
-        children: [
-          const SizedBox(height: kDefaultPadding * 6),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Responsive.isDesktop(context) ?
-              kDefaultDesktopPagePadding : 
-              Responsive.isTablet(context) ?
-              kDefaultTabletPagePadding : kDefaultMobilePagePadding
-            ),
-            child: Container(
-              constraints: BoxConstraints(
-                maxWidth: kMaxWidthPage
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: const [
-                      Expanded(
-                        child: Text(
-                            "Personal Projects",
-                            style: FontStyles.melodiLightTitle,
-                          ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: const [
-                      Expanded(
-                        child: Text(
-                            "A sample of the game titles that I've worked on over the years",
-                            style: FontStyles.melodiLightSubTitle,
-                          ),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ),
-          ),
-          
-          const SizedBox(height: kDefaultPadding * 8),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: projects.length,
-            itemBuilder: (context, index) {
-              return ProjectItem(projectItemData: projects[index]);
-            },
-          )
-        ],
-      ),
+    return Column(
+      children: personalProjectsList(projects, context),
     );
   }
 }

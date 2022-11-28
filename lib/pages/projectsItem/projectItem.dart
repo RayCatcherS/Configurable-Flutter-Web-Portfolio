@@ -179,16 +179,50 @@ class ProjectItem extends StatelessWidget {
       return AspectRatio(
         aspectRatio: 15/9,
         child: Stack(
+          fit: StackFit.expand,
           children: [
             Center(
               child: CircularProgressIndicator(
 
               )
             ),
-            Center(
-              child: Image.network(
-                projectItemData.imagePreviewURL,
-                fit: BoxFit.cover,
+            Image.network(
+              projectItemData.imagePreviewURL,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
+      );
+    } else if(projectItemData.itemType == ItemType.urlImagePlayableReference) {
+      return AspectRatio(
+        aspectRatio: 15/9,
+        child: Stack(
+          children: [
+            InkWell(
+              onTap: () {
+                AppFunctions.openPageInANewTab(projectItemData.imagePlayableReference);
+                
+              },
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    projectItemData.imagePreviewURL,
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned.fill(
+                    child: Container(
+                      color: Colors.black26,
+                    )
+                  ),
+                  Center(
+                    child: Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                      size: 65,
+                    )
+                  )
+                ],
               ),
             ),
           ],

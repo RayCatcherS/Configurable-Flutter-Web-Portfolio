@@ -20,6 +20,7 @@ class ProjectItemData {
   late final YouTubeVideo? _youTubePreviewVideo;
   late final String? _videoPreviewURL;
   late final String? _imagePreviewURL;
+  late final String? _imagePlayableReference;
 
   late final YoutubePlayerController _yTcontroller;
   YoutubePlayerController get yTcontroller { return _yTcontroller;}
@@ -42,6 +43,7 @@ class ProjectItemData {
   String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
 
   String get imagePreviewURL {return _imagePreviewURL!;}
+  String get imagePlayableReference {return _imagePlayableReference!;}
 
 
   ProjectItemData({
@@ -61,8 +63,9 @@ class ProjectItemData {
     String? callToActionUrl,
 
     YouTubeVideo? youTubeVideo,
-    String? videoURL,
-    String? imageURL
+    String? videoPreviewURL,
+    String? imagePreviewURL,
+    String? imagePlayableReference
   }) {
 
     _title = title;
@@ -91,8 +94,9 @@ class ProjectItemData {
 
     }
 
-    _videoPreviewURL = videoURL;
-    _imagePreviewURL = imageURL;
+    _videoPreviewURL = videoPreviewURL;
+    _imagePreviewURL = imagePreviewURL;
+    _imagePlayableReference = imagePlayableReference;
   }
   void openYoutubeVideoPage() {
     AppFunctions.openPageInANewTab("https://youtu.be/${_youTubePreviewVideo!.videoId}");
@@ -130,6 +134,7 @@ class Company {
 
 enum ItemType {
   urlImage,
+  urlImagePlayableReference,
   urlVideo,
   youTubeVideo
 }

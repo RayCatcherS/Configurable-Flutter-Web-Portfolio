@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sr_portfolio/pages/personalProjects/model/personalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
 
 import '../../../pageElements/footer/footer.dart';
 import '../../personalProjects/personalProjects.dart';
@@ -11,7 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    List<Widget> list = getWidgetList();
+    List<Widget> list = getWidgetList(context);
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 29, 29, 29),
@@ -25,13 +28,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  List<Widget> getWidgetList() {
+  List<Widget> getWidgetList(BuildContext context) {
 
-    return [
-      HomeCover(),
-      ProfessionalProjects(),
-      PersonalProjects(),
-      PageFooter()
-    ];
+    List<Widget> allWidgetList = [];
+
+    // init home cover
+    allWidgetList.add(HomeCover());
+
+    // init profesional projects list 
+    List<Widget> professionalProjects = ProfessionalProjects.professionalProjectsList(
+        context.read<ProfessionalProjectsProviderState>().personalProjects, context);
+    for(int i = 0; i < professionalProjects.length; i++) {
+      allWidgetList.add(
+        professionalProjects[i]
+      );
+    }
+
+    // init personal project list
+    List<Widget> personalProjects = PersonalProjects.personalProjectsList(
+        context.read<PersonalProjectsProviderState>().personalProjects, context);
+    for(int i = 0; i < personalProjects.length; i++) {
+      allWidgetList.add(
+        personalProjects[i]
+      );
+    }
+
+
+    // init page footer
+    allWidgetList.add(PageFooter());
+
+    
+    return allWidgetList;
   }
 }

@@ -9,7 +9,65 @@ import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjec
 import '../projectsItem/projectItem.dart';
 
 class ProfessionalProjects extends StatelessWidget {
-  const ProfessionalProjects({Key? key}) : super(key: key);
+  const ProfessionalProjects({
+    Key? key
+  }) : super(key: key);
+
+  static List<Widget> professionalProjectsList(List<ProjectItemData> projects, BuildContext context) {
+    
+    // init
+    List<Widget> widgetList = [
+      const SizedBox(height: kDefaultPadding * 6),
+      Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Responsive.isDesktop(context) ?
+          kDefaultDesktopPagePadding : 
+          Responsive.isTablet(context) ?
+          kDefaultTabletPagePadding : kDefaultMobilePagePadding
+        ),
+        child: Container(
+          constraints: BoxConstraints(
+            maxWidth: kMaxWidthPage
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: const [
+                  Expanded(
+                    child: Text(
+                        "Professional Projects",
+                        style: FontStyles.melodiLightTitle,
+                      ),
+                  ),
+                ],
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                    child: Text(
+                        "A sample of the game titles that I've worked on over the years",
+                        style: FontStyles.melodiLightSubTitle,
+                      ),
+                  ),
+                ],
+              ),
+            ],
+          )
+        ),
+      ),
+      const SizedBox(height: kDefaultPadding * 8),
+    ];
+
+
+    // build project list
+    for(int i = 0; i < projects.length; i++) {
+      widgetList.add(
+        ProjectItem(projectItemData: projects[i])
+      );
+    }
+
+    return widgetList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,60 +75,8 @@ class ProfessionalProjects extends StatelessWidget {
     List<ProjectItemData> projects 
     = context.read<ProfessionalProjectsProviderState>().personalProjects;
 
-    return Container(
-      
-      child: Column(
-        children: [
-          const SizedBox(height: kDefaultPadding * 6),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Responsive.isDesktop(context) ?
-              kDefaultDesktopPagePadding : 
-              Responsive.isTablet(context) ?
-              kDefaultTabletPagePadding : kDefaultMobilePagePadding
-            ),
-            child: Container(
-              constraints: BoxConstraints(
-                maxWidth: kMaxWidthPage
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: const [
-                      Expanded(
-                        child: Text(
-                            "Professional Projects",
-                            style: FontStyles.melodiLightTitle,
-                          ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: const [
-                      Expanded(
-                        child: Text(
-                            "A sample of the game titles that I've worked on over the years",
-                            style: FontStyles.melodiLightSubTitle,
-                          ),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ),
-          ),
-          
-          const SizedBox(height: kDefaultPadding * 8),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: projects.length,
-            itemBuilder: (context, index) {
-              return ProjectItem(projectItemData: projects[index]);
-            },
-          )
-        ],
-      ),
+    return Column(
+      children: professionalProjectsList(projects, context),
     );
   }
 }
