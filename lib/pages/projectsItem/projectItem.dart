@@ -48,7 +48,7 @@ class ProjectItem extends StatelessWidget {
             // cover image background color filter
             Positioned.fill(
               child: Container(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.45),
               )
             ),
 
@@ -209,11 +209,6 @@ class ProjectItem extends StatelessWidget {
                   Image.network(
                     projectItemData.imagePreviewURL,
                     fit: BoxFit.cover,
-                  ),
-                  Positioned.fill(
-                    child: Container(
-                      color: Colors.black26,
-                    )
                   ),
                   Center(
                     child: Icon(

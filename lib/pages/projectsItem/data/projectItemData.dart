@@ -10,7 +10,8 @@ class ProjectItemData {
   late final String _platforms;
   late final Company _company;
 
-  late final String _backgroundCoverImage;
+  late final String _backgroundCoverImageURL;
+  late final String? _backgroundCoverVideoURL;
   late final String _backgroundDescriptionImage;
 
   late final String? _callToActionText; 
@@ -25,6 +26,9 @@ class ProjectItemData {
   late final YoutubePlayerController _yTcontroller;
   YoutubePlayerController get yTcontroller { return _yTcontroller;}
 
+
+  
+
   ItemType get itemType { return _itemType;}
   String get title {return _title;}
   String get description {return _description;}
@@ -36,7 +40,9 @@ class ProjectItemData {
   String get professionalRoles {return _professionalRoles;}
   Company get company {return _company;}
 
-  String get backgroundCoverImage {return _backgroundCoverImage;}
+  String get backgroundCoverImage {return _backgroundCoverImageURL;}
+  String? get backgroundCoverVideoURL {return _backgroundCoverVideoURL;}
+  
 
 
   String get callToActionText {return _callToActionText == null ? "" : _callToActionText!;}
@@ -57,7 +63,7 @@ class ProjectItemData {
     required Company company,
 
     required String backgroundCoverImage,
-
+  
 
     String? callToActionText,
     String? callToActionUrl,
@@ -77,7 +83,7 @@ class ProjectItemData {
     _company = company;
 
 
-    _backgroundCoverImage = backgroundCoverImage;
+    _backgroundCoverImageURL = backgroundCoverImage;
 
 
     _callToActionText = callToActionText; 
@@ -97,6 +103,9 @@ class ProjectItemData {
     _videoPreviewURL = videoPreviewURL;
     _imagePreviewURL = imagePreviewURL;
     _imagePlayableReference = imagePlayableReference;
+
+    
+    
   }
   void openYoutubeVideoPage() {
     AppFunctions.openPageInANewTab("https://youtu.be/${_youTubePreviewVideo!.videoId}");
