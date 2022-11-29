@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sr_portfolio/pages/gameConceptProjects/gameConceptProjects.dart';
 import 'package:sr_portfolio/pages/personalProjects/model/personalProjectsProviderState.dart';
 import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
 
 import '../../../pageElements/footer/footer.dart';
+import '../../gameConceptProjects/model/gameConceptProjectsProviderState.dart';
 import '../../personalProjects/personalProjects.dart';
 import '../homeCover/homeCover.dart';
 import '../../professionalProjects/professionalProjects.dart';
@@ -51,6 +53,15 @@ class HomePage extends StatelessWidget {
     for(int i = 0; i < personalProjects.length; i++) {
       allWidgetList.add(
         personalProjects[i]
+      );
+    }
+
+    // init concept project list
+    List<Widget> conceptProjects = GameConceptProjects.gameConceptProjectsList(
+        context.read<GameConceptProjectsProviderState>().gameConceptProjects, context);
+    for(int i = 0; i < conceptProjects.length; i++) {
+      allWidgetList.add(
+        conceptProjects[i]
       );
     }
 

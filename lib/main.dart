@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sr_portfolio/pages/gameConceptProjects/model/gameConceptProjectsProviderState.dart';
 import 'package:sr_portfolio/pages/personalProjects/model/personalProjectsProviderState.dart';
 import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HomeCoverProviderState()),
         ChangeNotifierProvider(create: (_) => ProfessionalProjectsProviderState()),
         ChangeNotifierProvider(create: (_) => PersonalProjectsProviderState()),
+        ChangeNotifierProvider(create: (_) => GameConceptProjectsProviderState()),
       ],
       builder: ((context, child) {
         return MaterialApp(
