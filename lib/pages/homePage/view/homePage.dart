@@ -18,12 +18,13 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 29, 29, 29),
-      body: ListView.builder(
-        itemCount: list.length,
+      body: ListView(
+        //itemCount: list.length,
         physics: ClampingScrollPhysics(),
-        itemBuilder: (context, index) {
+        /*itemBuilder: (context, index) {
           return list[index];
-        },
+        },*/
+        children: list,
       ),
     );
   }

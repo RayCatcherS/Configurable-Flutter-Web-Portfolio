@@ -39,8 +39,8 @@ class PersonalProjectsProviderState extends ChangeNotifier {
       professionalRoles: "Programmer | Level Design | 3D Artist",
       platforms: "(iOS | Android)",
 
-      callToActionText: "",
-      callToActionUrl: "",
+      callToActionText: "Try It",
+      callToActionUrl: "https://celebrateit.it/sciFire/",
 
       backgroundCoverImage: "https://celebrateit.it/sPortfolio/personalProjectImages/SciFire/SciFireCoverVideo.gif",
     )
