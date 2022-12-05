@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../projectsItem/data/projectItemData.dart';
+import '../../../../projectsItem/data/projectItemData.dart';
 
 class PersonalProjectsProviderState extends ChangeNotifier {
 

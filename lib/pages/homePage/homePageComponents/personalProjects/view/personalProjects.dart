@@ -4,18 +4,16 @@ import 'package:sr_portfolio/UI/responsive.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
-import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/projectsItem/projectItem.dart';
 
-import '../projectsItem/projectItem.dart';
+import '../model/personalProjectsProviderState.dart';
 
-class ProfessionalProjects extends StatelessWidget {
-  const ProfessionalProjects({
-    Key? key
-  }) : super(key: key);
 
-  static List<Widget> professionalProjectsList(List<ProjectItemData> projects, BuildContext context) {
-    
-    // init
+class PersonalProjects extends StatelessWidget {
+  const PersonalProjects({Key? key}) : super(key: key);
+
+  static List<Widget> personalProjectsList(List<ProjectItemData> projects, BuildContext context) {
     List<Widget> widgetList = [
       const SizedBox(height: kDefaultPadding * 6),
       Padding(
@@ -35,7 +33,7 @@ class ProfessionalProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "Professional Projects",
+                        "Personal Projects",
                         style: FontStyles.melodiLightTitle,
                       ),
                   ),
@@ -45,7 +43,7 @@ class ProfessionalProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "A sample of the game titles that I've worked on over the years",
+                        "A sample of the personal game projects that I've worked",
                         style: FontStyles.melodiLightSubTitle,
                       ),
                   ),
@@ -58,8 +56,6 @@ class ProfessionalProjects extends StatelessWidget {
       const SizedBox(height: kDefaultPadding * 8),
     ];
 
-
-    // build project list
     for(int i = 0; i < projects.length; i++) {
       widgetList.add(
         ProjectItem(projectItemData: projects[i])
@@ -73,10 +69,10 @@ class ProfessionalProjects extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List<ProjectItemData> projects 
-    = context.read<ProfessionalProjectsProviderState>().personalProjects;
+    = context.read<PersonalProjectsProviderState>().personalProjects;
 
     return Column(
-      children: professionalProjectsList(projects, context),
+      children: personalProjectsList(projects, context),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../projectsItem/data/projectItemData.dart';
+import '../../../../projectsItem/data/projectItemData.dart';
 
 class ProfessionalProjectsProviderState extends ChangeNotifier {
 

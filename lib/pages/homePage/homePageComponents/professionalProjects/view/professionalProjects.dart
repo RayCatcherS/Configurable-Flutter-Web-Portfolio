@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sr_portfolio/UI/responsive.dart';
+import 'package:sr_portfolio/costants/font_styles.dart';
+import 'package:sr_portfolio/costants/widget_style_constant.dart';
+import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
 
-import '../../UI/responsive.dart';
-import '../../costants/font_styles.dart';
-import '../../costants/widget_style_constant.dart';
-import '../projectsItem/data/projectItemData.dart';
-import '../projectsItem/projectItem.dart';
+import '../../../../projectsItem/projectItem.dart';
 
-class GameConceptProjects extends StatelessWidget {
-  const GameConceptProjects({Key? key}) : super(key: key);
+class ProfessionalProjects extends StatelessWidget {
+  const ProfessionalProjects({
+    Key? key
+  }) : super(key: key);
 
-  static List<Widget> gameConceptProjectsList(List<ProjectItemData> projects, BuildContext context) {
+  static List<Widget> professionalProjectsList(List<ProjectItemData> projects, BuildContext context) {
+    
+    // init
     List<Widget> widgetList = [
       const SizedBox(height: kDefaultPadding * 6),
       Padding(
@@ -29,7 +35,7 @@ class GameConceptProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "Game Concept Projects",
+                        "Professional Projects",
                         style: FontStyles.melodiLightTitle,
                       ),
                   ),
@@ -39,7 +45,7 @@ class GameConceptProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "A concepts of the game titles that I prototype",
+                        "A sample of the game titles that I've worked on over the years",
                         style: FontStyles.melodiLightSubTitle,
                       ),
                   ),
@@ -52,6 +58,8 @@ class GameConceptProjects extends StatelessWidget {
       const SizedBox(height: kDefaultPadding * 8),
     ];
 
+
+    // build project list
     for(int i = 0; i < projects.length; i++) {
       widgetList.add(
         ProjectItem(projectItemData: projects[i])
@@ -63,6 +71,12 @@ class GameConceptProjects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+
+    List<ProjectItemData> projects 
+    = context.read<ProfessionalProjectsProviderState>().personalProjects;
+
+    return Column(
+      children: professionalProjectsList(projects, context),
+    );
   }
 }

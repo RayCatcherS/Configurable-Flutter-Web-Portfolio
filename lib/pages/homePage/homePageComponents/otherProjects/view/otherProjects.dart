@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sr_portfolio/UI/responsive.dart';
-import 'package:sr_portfolio/costants/font_styles.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
-import 'package:sr_portfolio/pages/professionalProjects/model/professionalProjectsProviderState.dart';
-import 'package:sr_portfolio/pages/projectsItem/projectItem.dart';
 
-import 'model/personalProjectsProviderState.dart';
+import '../../../../../UI/responsive.dart';
+import '../../../../../costants/font_styles.dart';
+import '../../../../../costants/widget_style_constant.dart';
+import '../../../../projectsItem/data/projectItemData.dart';
+import '../../../../projectsItem/projectItem.dart';
 
+class OtherProjects extends StatelessWidget {
+  const OtherProjects({Key? key}) : super(key: key);
 
-class PersonalProjects extends StatelessWidget {
-  const PersonalProjects({Key? key}) : super(key: key);
-
-  static List<Widget> personalProjectsList(List<ProjectItemData> projects, BuildContext context) {
+  static List<Widget> OtherProjectsList(List<ProjectItemData> projects, BuildContext context) {
     List<Widget> widgetList = [
       const SizedBox(height: kDefaultPadding * 6),
       Padding(
@@ -33,7 +29,7 @@ class PersonalProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "Personal Projects",
+                        "Other Personal Projects",
                         style: FontStyles.melodiLightTitle,
                       ),
                   ),
@@ -43,7 +39,7 @@ class PersonalProjects extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                        "A sample of the game titles that I've worked on over the years",
+                        "Other projects in collaboration / in which I have collaborated",
                         style: FontStyles.melodiLightSubTitle,
                       ),
                   ),
@@ -67,12 +63,6 @@ class PersonalProjects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    List<ProjectItemData> projects 
-    = context.read<PersonalProjectsProviderState>().personalProjects;
-
-    return Column(
-      children: personalProjectsList(projects, context),
-    );
+    return Container();
   }
 }
