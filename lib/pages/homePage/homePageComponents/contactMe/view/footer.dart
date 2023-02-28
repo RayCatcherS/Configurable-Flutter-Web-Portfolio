@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/UI/responsive.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
