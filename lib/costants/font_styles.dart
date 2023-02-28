@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const double _textHeight = 1;
+const double _textHeight2 = 1.35;
 
 class FontStyles {
   
@@ -14,7 +15,7 @@ class FontStyles {
   );
   static const TextStyle melodiLight = TextStyle(
     fontSize: 17,
-    height: _textHeight,
+    height: _textHeight2,
     color: Colors.white,
     fontWeight: FontWeight.w300,
     fontFamily: 'Melodi'

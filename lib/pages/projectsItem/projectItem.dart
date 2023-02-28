@@ -55,12 +55,7 @@ class ProjectItem extends StatelessWidget {
             // project item cover render
             Center(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: Responsive.isDesktop(context) ?
-                  kDefaultDesktopPagePadding : 
-                  Responsive.isTablet(context) ?
-                  kDefaultTabletPagePadding : kDefaultMobilePagePadding
-                ),
+                padding: getPagePadding(context),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: kMaxWidthPage
@@ -82,7 +77,10 @@ class ProjectItem extends StatelessWidget {
                             Spacer(),
                             Expanded(
                               flex: mediaFlexSize,
-                              child: getCoverMediaWidget(context)
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(kBorderRadius),
+                                child: getCoverMediaWidget(context)
+                              )
                             ),
                             
                           ],
@@ -91,7 +89,10 @@ class ProjectItem extends StatelessWidget {
                         if(Responsive.isMobile(context))
                         Column(
                           children: [
-                            getCoverMediaWidget(context),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(kBorderRadius),
+                              child: getCoverMediaWidget(context)
+                            ),
                             SizedBox(height: kDefaultPadding * 3),
                             getCoverTextWidget(context) 
                           ],

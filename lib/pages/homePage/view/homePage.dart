@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/gameConceptProjects/view/gameConceptProjects.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/personalProjects/model/personalProjectsProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
 
-import '../../../pageElements/footer/footer.dart';
+
 import '../homePageComponents/aboutMe/view/aboutMe.dart';
+import '../homePageComponents/contactMe/view/footer.dart';
 import '../homePageComponents/gameConceptProjects/model/gameConceptProjectsProviderState.dart';
 import '../homePageComponents/otherProjects/model/otherProjectsProviderState.dart';
 import '../homePageComponents/otherProjects/view/otherProjects.dart';
@@ -22,10 +24,10 @@ class HomePage extends StatelessWidget {
     List<Widget> list = getWidgetList(context);
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 29, 29, 29),
+      backgroundColor: const Color.fromARGB(255, 29, 29, 29),
       body: ListView(
         //itemCount: list.length,
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         /*itemBuilder: (context, index) {
           return list[index];
         },*/
@@ -82,7 +84,6 @@ class HomePage extends StatelessWidget {
 
     // init page footer
     allWidgetList.add(PageFooter());
-
     
     return allWidgetList;
   }

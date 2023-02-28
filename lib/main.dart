@@ -5,6 +5,7 @@ import 'package:sr_portfolio/pages/homePage/homePageComponents/personalProjects/
 import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
 
 import 'pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
+import 'pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
 import 'pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
 import 'pages/homePage/homePageComponents/otherProjects/model/otherProjectsProviderState.dart';
 import 'pages/homePage/view/homePage.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => GameConceptProjectsProviderState()),
         ChangeNotifierProvider(create: (_) => OtherProjectsProviderState()),
         ChangeNotifierProvider(create: (_) => AboutMeProviderState()),
+        ChangeNotifierProvider(create: (_) => ContactMeProviderState()), 
       ],
       builder: ((context, child) {
         return MaterialApp(

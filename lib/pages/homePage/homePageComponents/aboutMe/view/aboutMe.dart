@@ -10,58 +10,73 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Responsive.isDesktop(context) ?
-        kDefaultDesktopPagePadding : 
-        Responsive.isTablet(context) ?
-        kDefaultTabletPagePadding : kDefaultMobilePagePadding
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: kDefaultPadding * 10),
-          Row(
-            children: const [
-              Expanded(
-                child: Text(
-                    "About Me",
-                    style: FontStyles.melodiRegularTitle,
+    return Center(
+      child: Padding(
+        padding: getPagePadding(context),
+        child: Container(
+          /*constraints: const BoxConstraints(
+            maxWidth: kMaxWidthPage * 1
+          ),*/
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: kDefaultPadding * 10),
+              Row(
+                children: const [
+                  Expanded(
+                    child: Text(
+                        "About Me",
+                        style: FontStyles.melodiRegularTitle,
+                      ),
                   ),
+                ],
               ),
+              const SizedBox(height: kDefaultPadding * 2),
+        
+              if(Responsive.isMobile(context))
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  profileImage(context),
+                  const SizedBox(height: kDefaultPadding * 1.5),
+                  aboutMeDescription(context)
+                ],
+              ) else if(Responsive.isTablet(context))
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  profileImage(context),
+                  const SizedBox(width: kDefaultPadding * 4),
+                  Expanded(child: aboutMeDescription(context)),
+                ],
+              )
+              else
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  profileImage(context),
+                  const SizedBox(width: kDefaultPadding * 4),
+                  Expanded(child: aboutMeDescription(context)),
+                  Spacer()
+                ],
+              )
             ],
           ),
-          const SizedBox(height: kDefaultPadding * 2),
-
-          if(Responsive.isMobile(context))
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              profileImage(context),
-              const SizedBox(width: kDefaultPadding),
-              aboutMeDescription(context)
-            ],
-          )
-          else
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              profileImage(context),
-              const SizedBox(width: kDefaultPadding),
-              Expanded(child: aboutMeDescription(context))
-            ],
-          )
-        ],
+        ),
       ),
     );
   }
 
   Widget profileImage(BuildContext context) {
-    return Image.network(
-      context.read<AboutMeProviderState>().pictureProfile,
-      height: Responsive.isMobile(context) ? null : 300,
-      width: Responsive.isMobile(context) ? null : 300,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(kBorderRadius),
+      child: Image.network(
+        context.read<AboutMeProviderState>().pictureProfile,
+        fit: BoxFit.cover,
+        height: Responsive.isMobile(context) ? null : 300,
+        width: Responsive.isMobile(context) ? null : 300,
+      ),
     );
   }
 

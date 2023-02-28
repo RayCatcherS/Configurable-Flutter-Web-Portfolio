@@ -13,12 +13,7 @@ class GameConceptProjects extends StatelessWidget {
     List<Widget> widgetList = [
       const SizedBox(height: kDefaultPadding * 6),
       Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: Responsive.isDesktop(context) ?
-          kDefaultDesktopPagePadding : 
-          Responsive.isTablet(context) ?
-          kDefaultTabletPagePadding : kDefaultMobilePagePadding
-        ),
+        padding: getPagePadding(context),
         child: Container(
           constraints: BoxConstraints(
             maxWidth: kMaxWidthPage
