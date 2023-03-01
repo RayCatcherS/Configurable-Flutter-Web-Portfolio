@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/gameConceptProjects/view/gameConceptProjects.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/personalProjects/model/personalProjectsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
 
 
 import '../homePageComponents/aboutMe/view/aboutMe.dart';
 import '../homePageComponents/contactMe/view/footer.dart';
-import '../homePageComponents/gameConceptProjects/model/gameConceptProjectsProviderState.dart';
-import '../homePageComponents/otherProjects/model/otherProjectsProviderState.dart';
-import '../homePageComponents/otherProjects/view/otherProjects.dart';
-import '../homePageComponents/personalProjects/view/personalProjects.dart';
 import '../homePageComponents/homeCover/homeCover.dart';
-import '../homePageComponents/professionalProjects/view/professionalProjects.dart';
+import '../homePageComponents/ProjectGroups/view/ProjectGroups.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,39 +36,12 @@ class HomePage extends StatelessWidget {
     // init home cover
     allWidgetList.add(HomeCover());
 
-    // init profesional projects list 
-    List<Widget> professionalProjects = ProfessionalProjects.professionalProjectsList(
-        context.read<ProfessionalProjectsProviderState>().personalProjects, context);
-    for(int i = 0; i < professionalProjects.length; i++) {
+    // init projects groups list 
+    List<Widget> projectGroups = ProjectGroupsWidget.projectGroupList(
+        context.read<ProjectGroupsProviderState>().projectsGroups, context);
+    for(int i = 0; i < projectGroups.length; i++) {
       allWidgetList.add(
-        professionalProjects[i]
-      );
-    }
-
-    // init personal project list
-    List<Widget> personalProjects = PersonalProjects.personalProjectsList(
-        context.read<PersonalProjectsProviderState>().personalProjects, context);
-    for(int i = 0; i < personalProjects.length; i++) {
-      allWidgetList.add(
-        personalProjects[i]
-      );
-    }
-
-    // init concept project list
-    List<Widget> conceptProjects = GameConceptProjects.gameConceptProjectsList(
-        context.read<GameConceptProjectsProviderState>().gameConceptProjects, context);
-    for(int i = 0; i < conceptProjects.length; i++) {
-      allWidgetList.add(
-        conceptProjects[i]
-      );
-    }
-
-    // init other project list
-    List<Widget> otherProjects = OtherProjects.OtherProjectsList(
-        context.read<OtherProjectsProviderState>().otherProjects, context);
-    for(int i = 0; i < otherProjects.length; i++) {
-      allWidgetList.add(
-        otherProjects[i]
+        projectGroups[i]
       );
     }
 

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/gameConceptProjects/model/gameConceptProjectsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/personalProjects/model/personalProjectsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/professionalProjects/model/professionalProjectsProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
 
 import 'pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
 import 'pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
 import 'pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
-import 'pages/homePage/homePageComponents/otherProjects/model/otherProjectsProviderState.dart';
 import 'pages/homePage/view/homePage.dart';
 import 'pages/homePage/model/homePageProviderState.dart';
 
@@ -31,10 +28,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => HomePageProvider()),
         ChangeNotifierProvider(create: (_) => HomeCoverProviderState()),
-        ChangeNotifierProvider(create: (_) => ProfessionalProjectsProviderState()),
-        ChangeNotifierProvider(create: (_) => PersonalProjectsProviderState()),
-        ChangeNotifierProvider(create: (_) => GameConceptProjectsProviderState()),
-        ChangeNotifierProvider(create: (_) => OtherProjectsProviderState()),
+        ChangeNotifierProvider(create: (_) => ProjectGroupsProviderState()),
         ChangeNotifierProvider(create: (_) => AboutMeProviderState()),
         ChangeNotifierProvider(create: (_) => ContactMeProviderState()), 
       ],
