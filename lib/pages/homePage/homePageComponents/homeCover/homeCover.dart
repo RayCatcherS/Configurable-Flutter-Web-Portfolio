@@ -20,8 +20,8 @@ class HomeCover extends StatelessWidget {
       children: [
         
         Positioned.fill(
-          child: Image.network(
-            context.read<HomeCoverProviderState>().coverImageUrl,
+          child: Image.memory(
+            context.read<HomeCoverProviderState>().homeCoverImgData,
             fit: BoxFit.cover,
             alignment: Alignment.center,
           ),

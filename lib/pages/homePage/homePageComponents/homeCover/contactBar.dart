@@ -27,7 +27,7 @@ class ContactsBar extends StatelessWidget {
           // Linkedin
           icon: FaIcon(FontAwesomeIcons.linkedinIn), 
           color: Colors.white,
-          onPressed: () { AppFunctions.openPageInANewTab(context.read<HomeCoverProviderState>().linkedinURL); },
+          onPressed: () { AppFunctions.openPageInANewTab(context.read<HomeCoverProviderState>().linkedinUrl); },
           enableFeedback: true,
           hoverColor: Colors.black54,
           splashColor: Colors.black54,

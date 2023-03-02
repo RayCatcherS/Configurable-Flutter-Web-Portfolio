@@ -41,11 +41,26 @@ class MyApp extends StatelessWidget {
 
 
           // provider state links
-          ChangeNotifierProxyProvider<ProjectGroupsProviderState, RemoteAssetsProviderState>(
+          ChangeNotifierProxyProvider4<ProjectGroupsProviderState, HomeCoverProviderState, AboutMeProviderState, ContactMeProviderState, RemoteAssetsProviderState>(
             create: (context) => RemoteAssetsProviderState(),
-            update: (BuildContext context, ProjectGroupsProviderState projectGroupsProviderState, RemoteAssetsProviderState? remoteAssetsProviderState) 
-            => remoteAssetsProviderState!..updateLinkedModel(projectGroupsModel: projectGroupsProviderState)
+            update: (
+              BuildContext context,
+              ProjectGroupsProviderState projectGroupsProviderState,
+              HomeCoverProviderState homeCoverProviderState,
+              AboutMeProviderState aboutMeProviderState,
+              ContactMeProviderState contactMeProviderState,
+              RemoteAssetsProviderState? remoteAssetsProviderState
+            ) 
+
+            => remoteAssetsProviderState!..updateLinkedModel(
+              projectGroupsModel: projectGroupsProviderState,
+              homeCoverModel: homeCoverProviderState,
+              aboutMeModel: aboutMeProviderState,
+              contactMeModel: contactMeProviderState
+            )
           ),
+
+          
         ],
         builder: ((context, child) {
     
@@ -65,7 +80,7 @@ class MyApp extends StatelessWidget {
 
 
   void startMethods(BuildContext context) {
-    context.read<RemoteAssetsProviderState>().loadAssetsContent(context);
+    context.read<RemoteAssetsProviderState>().getMediaAssetsConfig(context);
   }
 }
 

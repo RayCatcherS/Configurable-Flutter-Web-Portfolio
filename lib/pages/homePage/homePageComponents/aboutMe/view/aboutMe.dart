@@ -71,8 +71,8 @@ class AboutMe extends StatelessWidget {
   Widget profileImage(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(kBorderRadius),
-      child: Image.network(
-        context.read<AboutMeProviderState>().pictureProfile,
+      child: Image.memory(
+        context.read<AboutMeProviderState>().pictureProfileImgData,
         fit: BoxFit.cover,
         height: Responsive.isMobile(context) ? null : 300,
         width: Responsive.isMobile(context) ? null : 300,
