@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const double _textHeight = 1;
 const double _textHeight2 = 1.35;
+const double _textHeight3 = 1.15;
 
 class FontStyles {
   
@@ -79,9 +80,16 @@ class FontStyles {
   );
   static const TextStyle melodiMonoMedium = TextStyle(
     fontSize: 15,
-    height: _textHeight,
+    height: _textHeight3,
     color: Colors.white,
     fontWeight: FontWeight.w500,
+    fontFamily: 'MelodiMono'
+  );
+  static const TextStyle melodiMonoExtraLight = TextStyle(
+    fontSize: 15,
+    height: _textHeight3,
+    color: Colors.white,
+    fontWeight: FontWeight.w200,
     fontFamily: 'MelodiMono'
   );
   static const TextStyle melodiMonoMediumSubTitle = TextStyle(

@@ -35,11 +35,10 @@ class ProjectItem extends StatelessWidget {
       children: [
         Stack(
           children: [
-
             // cover project background 
             Positioned.fill(
-              child: Image.network(
-                  projectItemData.backgroundCoverImage,
+              child: Image.memory(
+                  projectItemData.backgroundCoverImgData,
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
               ),
@@ -114,9 +113,9 @@ class ProjectItem extends StatelessWidget {
               child: ClipRRect(
                 child: ImageFiltered(
                   imageFilter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                  child: Image.network(
+                  child: Image.memory(
                       
-                      projectItemData.backgroundCoverImage,
+                      projectItemData.backgroundCoverImgData,
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                   ),
@@ -187,8 +186,8 @@ class ProjectItem extends StatelessWidget {
 
               )
             ),
-            Image.network(
-              projectItemData.imagePreviewURL,
+            Image.memory(
+              projectItemData.imagePreviewImgData,
               fit: BoxFit.cover,
             ),
           ],
@@ -201,14 +200,14 @@ class ProjectItem extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                AppFunctions.openPageInANewTab(projectItemData.imagePlayableReference);
+                AppFunctions.openPageInANewTab(projectItemData.imagePlayableReferenceURL);
                 
               },
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.network(
-                    projectItemData.imagePreviewURL,
+                  Image.memory(
+                    projectItemData.imagePreviewImgData,
                     fit: BoxFit.cover,
                   ),
                   Center(
@@ -415,9 +414,9 @@ class ProjectItem extends StatelessWidget {
     return Center(
       child: AspectRatio(
         aspectRatio: 20/9,
-        child: Image.network(
+        child: Image.memory(
                           
-            projectItemData.gameAssetImage,
+            projectItemData.gameAssetImageImgData,
             fit: BoxFit.fitHeight,
             alignment: Alignment.center,
         ),

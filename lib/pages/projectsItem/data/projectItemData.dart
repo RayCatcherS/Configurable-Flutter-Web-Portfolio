@@ -1,17 +1,21 @@
+import 'package:flutter/services.dart';
 import 'package:sr_portfolio/appFunctions.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class ProjectItemData {
   late final String _title;
   late final String _description;
-  late final String _gameAssetImage;
+  late final String _gameAssetImageUrl;
+  Uint8List gameAssetImageImgData = Uint8List(0);
 
   late final String _professionalRoles;
   late final String _platforms;
   late final Company _company;
 
-  late final String _backgroundCoverImageURL;
-  late final String? _backgroundCoverVideoURL;
+  late final String _backgroundCoverImageUrl;
+  Uint8List backgroundCoverImgData = Uint8List(0);
+  
+  late final String? _backgroundCoverVideoUrl;
   late final String _backgroundDescriptionImage;
 
   late final String? _callToActionText; 
@@ -19,9 +23,12 @@ class ProjectItemData {
 
   late final ItemType _itemType;
   late final YouTubeVideo? _youTubePreviewVideo;
-  late final String? _videoPreviewURL;
-  late final String? _imagePreviewURL;
-  late final String? _imagePlayableReference;
+  late final String? _videoPreviewUrl;
+  late final String? _imagePreviewUrl;
+  Uint8List imagePreviewImgData = Uint8List(0);
+
+  late final String? _imagePlayableReferenceUrl;
+  Uint8List imagePlayableReferenceImgData = Uint8List(0);
 
   late final YoutubePlayerController _yTcontroller;
   YoutubePlayerController get yTcontroller { return _yTcontroller;}
@@ -32,7 +39,7 @@ class ProjectItemData {
   ItemType get itemType { return _itemType;}
   String get title {return _title;}
   String get description {return _description;}
-  String get gameAssetImage {return _gameAssetImage;}
+  String get gameAssetImageURL {return _gameAssetImageUrl;}
 
 
 
@@ -40,50 +47,50 @@ class ProjectItemData {
   String get professionalRoles {return _professionalRoles;}
   Company get company {return _company;}
 
-  String get backgroundCoverImage {return _backgroundCoverImageURL;}
-  String? get backgroundCoverVideoURL {return _backgroundCoverVideoURL;}
+  String get backgroundCoverImageUrl {return _backgroundCoverImageUrl;}
+  String? get backgroundCoverVideoUrl {return _backgroundCoverVideoUrl;}
   
 
 
   String get callToActionText {return _callToActionText == null ? "" : _callToActionText!;}
   String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
 
-  String get imagePreviewURL {return _imagePreviewURL!;}
-  String get imagePlayableReference {return _imagePlayableReference!;}
+  String get imagePreviewUrl {return _imagePreviewUrl!;}
+  String get imagePlayableReferenceURL {return _imagePlayableReferenceUrl!;}
 
 
   ProjectItemData({
     required String title,
     required String description,
-    required String gameAssetImage,
+    required String gameAssetImageUrl,
 
     required ItemType itemType,
     required String professionalRoles,
     required String platforms,
     required Company company,
 
-    required String backgroundCoverImage,
+    required String backgroundCoverImageUrl,
   
 
     String? callToActionText,
     String? callToActionUrl,
 
     YouTubeVideo? youTubeVideo,
-    String? videoPreviewURL,
-    String? imagePreviewURL,
-    String? imagePlayableReference
+    String? videoPreviewUrl,
+    String? imagePreviewUrl,
+    String? imagePlayableReferenceUrl
   }) {
 
     _title = title;
     _description = description;
-    _gameAssetImage = gameAssetImage;
+    _gameAssetImageUrl = gameAssetImageUrl;
 
     _professionalRoles = professionalRoles;
     _platforms = platforms;
     _company = company;
 
 
-    _backgroundCoverImageURL = backgroundCoverImage;
+    _backgroundCoverImageUrl = backgroundCoverImageUrl;
 
 
     _callToActionText = callToActionText; 
@@ -100,9 +107,9 @@ class ProjectItemData {
 
     }
 
-    _videoPreviewURL = videoPreviewURL;
-    _imagePreviewURL = imagePreviewURL;
-    _imagePlayableReference = imagePlayableReference;
+    _videoPreviewUrl = videoPreviewUrl;
+    _imagePreviewUrl = imagePreviewUrl;
+    _imagePlayableReferenceUrl = imagePlayableReferenceUrl;
 
     
     

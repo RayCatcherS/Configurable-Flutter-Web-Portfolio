@@ -1,0 +1,149 @@
+{
+    "assetsData" : {
+        "projectGroups" : [
+            {
+                "projectGroupName" : "Professional Projects",
+                "projectGroupDescription" : "A sample of the game titles that I've worked on over the years",
+                "projectItemsData" : [
+                    {
+                        "itemType" : "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCVideoImage.png",
+                        "imagePlayableReferenceUrl" : "",
+                        "title" : "My Clinical Trial Center",
+                        "description" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/ChildSpriteBase.png",
+                        "company" : {
+                            "companyName" : "HERO s.r.l.",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles" : "Software Enginer | Programmer | Level Design | 3D Artist",
+                        "platforms" : "(iOS | Android)",
+                        "callToActionText" : "Article / Download",
+                        "callToActionUrl" : "https://www.cvbf.net/news/my-clinical-trial-center-serious-videogame",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCCoverImage.png"
+                    }
+                ]
+            }, 
+            {
+                "projectGroupName" : "Personal Projects",
+                "projectGroupDescription" : "A sample of the personal game projects that I've worked",
+                "projectItemsData" : [
+                    {
+                        "itemType" : "ItemType.urlImage",
+                        "imagePreviewUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/Vergeltung/control.gif",
+                        "imagePlayableReferenceUrl" : "",
+                        "title" : "Vergeltung",
+                        "description" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/Vergeltung/VergeltungAsset.png",
+                        "company" : {
+                            "companyName" : "University Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles" : "Software Enginer | Programmer | AI | Level Design | 3D Artist",
+                        "platforms" : "(Windows)",
+                        "callToActionText" : "Github / Download",
+                        "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.png"
+                    }
+                ]
+            },
+            {
+                "projectGroupName" : "Personal Game Concept Projects",
+                "projectGroupDescription" : "A concepts of the game titles that I prototype",
+                "projectItemsData" : [
+                    {
+                        "itemType": "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/sciFireVideoImage.png",
+                        "imagePlayableReferenceUrl": "https://youtube.com/shorts/uZXDRLjslM8",
+                        "title": "Sci-Fire",
+                        "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/sciFireAsset.png",
+                        "company" : {
+                            "companyName" : "Personal Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles": "Programmer | Game Design | Level Design | 3D Artist",
+                        "platforms": "(iOS | Android)",
+                        "callToActionText": "Try It",
+                        "callToActionUrl": "https://celebrateit.it/sciFire/",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/SciFireCoverVideo.gif"
+                    },
+                    {
+                        "itemType": "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMVideoPreview.png",
+                        "imagePlayableReferenceUrl": "https://youtu.be/2QCzSmXjU60",
+                        "title": "07:00 AM",
+                        "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMAsset.png",
+                        "company" : {
+                            "companyName" : "Personal Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles": "Programmer | 3D Artist | Level Design",
+                        "platforms": "(iOS | Android)",
+                        "callToActionText": "Try It",
+                        "callToActionUrl": "https://celebrateit.it/sciFire/",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMCover.gif"
+                    }
+                ]
+            },
+            {
+                "projectGroupName" : "Other Personal Projects",
+                "projectGroupDescription" : "Other projects / in which I have collaborated",
+                "projectItemsData" : [
+                    {
+                        "itemType": "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.png",
+                        "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=kvMvK_FZabo&ab_channel=LuciaPatrono",
+                        "title": "Foods & Roots",
+                        "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrate_logo.png",
+                        "company" : {
+                            "companyName" : "Global Game Jam Team",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles": "Game Effects | Game Programming | Game Design",
+                        "platforms": "(Windows)",
+                        "callToActionText": "GGJ Page",
+                        "callToActionUrl": "https://globalgamejam.org/2023/games/foods-roots-7",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/GGJFR.png"
+                    },
+                    {
+                        "itemType" : "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.png",
+                        "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=kvMvK_FZabo&ab_channel=LuciaPatrono",
+                        "title": "Muovo",
+                        "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrate_logo.png",
+                        "company" : {
+                            "companyName" : "University Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles": "User Interface Design | User Centered Design",
+                        "platforms": "(Figma)",
+                        "callToActionText": "Figma Demo",
+                        "callToActionUrl": "https://www.figma.com/proto/lkGJBYXgwYSFmFQbZrc7w9/Prototipo-Interattivo-Finale---Alta-fedelt%C3%A0?node-id=19%3A425&starting-point-node-id=19%3A425",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmasheet.png"
+                    },
+                    {
+                        "itemType": "ItemType.urlImagePlayableReference",
+                        "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrateVideoPreview.png",
+                        "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=oSb0LKCYWYc&ab_channel=Celebrateit",
+                        "title" : "Celebrate",
+                        "description" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl" : "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrate_logo.png",
+                        "company" : {
+                            "companyName" : "Personal Team Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles" : "Front-end Dev | Back-end Dev",
+                        "platforms" : "(Web)",
+                        "callToActionText" : "Web App",
+                        "callToActionUrl" : "https://celebrateit.it/",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrateCover.png"
+                    }
+                ]
+            }
+        ]
+    }
+}
