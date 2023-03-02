@@ -19,14 +19,14 @@ class ProjectGroup {
     _projectItemDataList = [];
     for(int i = 0; i < data["projectItemsData"].length; i++) {
 
-      ItemType itemType = ItemType.urlImage; 
-      if(data["projectItemsData"][i]["gameAssetImageUrl"] == "ItemType.urlImage") {
-        itemType = ItemType.urlImage;
-      } else if(data["projectItemsData"][i]["gameAssetImageUrl"] == "ItemType.urlImagePlayableReference") {
-        itemType = ItemType.urlImagePlayableReference;
-      } else if(data["projectItemsData"][i]["gameAssetImageUrl"] == "ItemType.urlVideo") {
-        itemType = ItemType.urlVideo;
-      } else if(data["projectItemsData"][i]["gameAssetImageUrl"] == "ItemType.youTubeVideo") {
+      ItemType itemType = ItemType.Image; 
+      if(data["projectItemsData"][i]["itemType"] == "ItemType.urlImage") {
+        itemType = ItemType.Image;
+      } else if(data["projectItemsData"][i]["itemType"] == "ItemType.urlImagePlayableReference") {
+        itemType = ItemType.imagePlayableReference;
+      } else if(data["projectItemsData"][i]["itemType"] == "ItemType.urlVideo") {
+        itemType = ItemType.video;
+      } else if(data["projectItemsData"][i]["itemType"] == "ItemType.youTubeVideo") {
         itemType = ItemType.youTubeVideo;
       }
 

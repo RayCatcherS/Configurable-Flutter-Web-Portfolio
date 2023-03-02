@@ -145,14 +145,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
         responseData = await http.get(httpPackageUrl);
         // set raw imagePreview
         item.imagePreviewImgData = responseData.bodyBytes;
-
-
-
-        // http request raw imagePlayableReference
-        httpPackageUrl = Uri.parse(item.imagePlayableReferenceURL);
-        responseData = await http.get(httpPackageUrl);
-        // set raw imagePlayableReference
-        item.imagePlayableReferenceImgData = responseData.bodyBytes;
+        
 
 
         // http request raw gameAssetImage

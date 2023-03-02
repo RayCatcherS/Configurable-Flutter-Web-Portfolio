@@ -28,7 +28,6 @@ class ProjectItemData {
   Uint8List imagePreviewImgData = Uint8List(0);
 
   late final String? _imagePlayableReferenceUrl;
-  Uint8List imagePlayableReferenceImgData = Uint8List(0);
 
   late final YoutubePlayerController _yTcontroller;
   YoutubePlayerController get yTcontroller { return _yTcontroller;}
@@ -56,7 +55,7 @@ class ProjectItemData {
   String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
 
   String get imagePreviewUrl {return _imagePreviewUrl!;}
-  String get imagePlayableReferenceURL {return _imagePlayableReferenceUrl!;}
+  String get imagePlayableReferenceUrl {return _imagePlayableReferenceUrl!;}
 
 
   ProjectItemData({
@@ -149,8 +148,8 @@ class Company {
 }
 
 enum ItemType {
-  urlImage,
-  urlImagePlayableReference,
-  urlVideo,
+  Image,
+  imagePlayableReference,
+  video,
   youTubeVideo
 }

@@ -175,7 +175,7 @@ class ProjectItem extends StatelessWidget {
   }
 
   Widget getCoverMediaWidget(BuildContext context) {
-    if(projectItemData.itemType == ItemType.urlImage) {
+    if(projectItemData.itemType == ItemType.Image) {
       return AspectRatio(
         aspectRatio: 15/9,
         child: Stack(
@@ -193,14 +193,14 @@ class ProjectItem extends StatelessWidget {
           ],
         ),
       );
-    } else if(projectItemData.itemType == ItemType.urlImagePlayableReference) {
+    } else if(projectItemData.itemType == ItemType.imagePlayableReference) {
       return AspectRatio(
         aspectRatio: 15/9,
         child: Stack(
           children: [
             InkWell(
               onTap: () {
-                AppFunctions.openPageInANewTab(projectItemData.imagePlayableReferenceURL);
+                AppFunctions.openPageInANewTab(projectItemData.imagePlayableReferenceUrl);
                 
               },
               child: Stack(
@@ -223,7 +223,7 @@ class ProjectItem extends StatelessWidget {
           ],
         ),
       );
-    } else if(projectItemData.itemType == ItemType.urlVideo) {
+    } else if(projectItemData.itemType == ItemType.video) {
       return AspectRatio(
         aspectRatio: 15/9,
         child: Container(
