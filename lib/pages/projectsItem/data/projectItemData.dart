@@ -26,6 +26,7 @@ class ProjectItemData {
   late final YouTubeVideo? _youTubePreviewVideo;
   late final String? _mediaPreviewUrl;
   Uint8List imageMediaPreviewImgData = Uint8List(0);
+  late final VideoPlayerController videoMediaPreviewController;
 
   late final String? _imagePlayableReferenceUrl;
 

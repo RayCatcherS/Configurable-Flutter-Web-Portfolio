@@ -74,10 +74,9 @@ class MyApp extends StatelessWidget {
     
           return Stack(
             children: [
-              TRY()
-              //HomePage(),
+              HomePage(),
               
-              //FirstLoadingPage()
+              FirstLoadingPage()
             ],
           );
         }),
@@ -89,39 +88,5 @@ class MyApp extends StatelessWidget {
   void startMethods(BuildContext context) {
     context.read<RemoteAssetsProviderState>().getMediaAssetsConfig(context);
     
-  }
-}
-
-class TRY extends StatefulWidget {
-  TRY({Key? key}) : super(key: key);
-
-  @override
-  State<TRY> createState() => _TRYState();
-}
-
-class _TRYState extends State<TRY> {
-  late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-  
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: _controller.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            )
-          : Container(),
-    );
   }
 }

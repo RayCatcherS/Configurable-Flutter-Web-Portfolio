@@ -233,7 +233,9 @@ class ProjectItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Center(
-              child: VideoPlayerWidget() 
+              child: VideoPlayerWidget(
+                controller: projectItemData.videoMediaPreviewController,
+              ) 
             ),
           ],
         ),
@@ -437,56 +439,17 @@ class ProjectItem extends StatelessWidget {
 
 class VideoPlayerWidget extends StatefulWidget {
   VideoPlayerWidget({
-    Key? key
+    Key? key,
+    required VideoPlayerController this.controller
   }) : super(key: key);
 
-  String msg = "No message";
+  VideoPlayerController controller;
 
   @override
   State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
-late VideoPlayerController controller;
-
-  @override
-  Future<void> initState() async {
-    // TODO: implement initState
-    super.initState();
-
-    widget.msg = "initalizing";
-    setState(() {
-      
-    });
-
-    controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
-        videoPlayerOptions: VideoPlayerOptions(
-              mixWithOthers: false              
-            )
-        );
-    controller.setVolume(0);
-
-    await controller.initialize().onError((error, stackTrace) {
-        widget.msg = error.toString();
-        setState(() {
-          
-        });
-      });
-        setState(() {});
-    /*item.videoMediaController = VideoPlayerController.network(
-            item.mediaPreviewUrl,
-            videoPlayerOptions: VideoPlayerOptions(
-              allowBackgroundPlayback: true,
-            )
-          );
-          item.videoMediaController.initialize();
-          item.videoMediaController.setVolume(0);*/
-          
-          /*item.videoMediaController.setLooping(true);
-          item.videoMediaController.setVolume(0);
-          item.videoMediaController.play();*/
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -494,16 +457,11 @@ late VideoPlayerController controller;
       key: UniqueKey(),
       onVisibilityChanged: (visibilityInfo) {
 
-        //controller.play();
+        widget.controller.play();
       },
-      child: Column(
-        children: [
-          controller.value.isInitialized
-                      ? VideoPlayer(controller)
-                      : Container(),
-                      Text(widget.msg, style: TextStyle(color: Colors.white),)
-        ],
-      ),
+      child: widget.controller.value.isInitialized
+              ? VideoPlayer(widget.controller)
+              : Container(),
     );
   }
 }
