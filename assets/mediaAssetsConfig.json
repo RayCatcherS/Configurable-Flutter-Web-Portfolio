@@ -122,19 +122,19 @@
                         "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/GGJFR.png"
                     },
                     {
-                        "itemType" : "ItemType.urlImagePlayableReference",
+                        "itemType" : "ItemType.urlImage",
                         "imagePreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.png",
                         "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=kvMvK_FZabo&ab_channel=LuciaPatrono",
                         "title": "Muovo",
                         "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
-                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrate_logo.png",
+                        "gameAssetImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmaAssetsScreens.png",
                         "company" : {
                             "companyName" : "University Project",
                             "companyUrl" : ""
                         },
                         "professionalRoles": "User Interface Design | User Centered Design",
                         "platforms": "(Figma)",
-                        "callToActionText": "Figma Demo",
+                        "callToActionText": "Try Figma Demo",
                         "callToActionUrl": "https://www.figma.com/proto/lkGJBYXgwYSFmFQbZrc7w9/Prototipo-Interattivo-Finale---Alta-fedelt%C3%A0?node-id=19%3A425&starting-point-node-id=19%3A425",
                         "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmasheet.png"
                     },

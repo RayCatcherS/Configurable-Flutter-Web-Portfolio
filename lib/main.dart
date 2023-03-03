@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
+import 'package:sr_portfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
@@ -32,12 +33,16 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (_) => LoadingStringEffectProviderState()),
+
+
           ChangeNotifierProvider(create: (_) => RemoteAssetsProviderState()),
 
           ChangeNotifierProvider(create: (_) => HomeCoverProviderState()),
           ChangeNotifierProvider(create: (_) => ProjectsGroupsProviderState()),
           ChangeNotifierProvider(create: (_) => AboutMeProviderState()),
           ChangeNotifierProvider(create: (_) => ContactMeProviderState()), 
+          
 
 
           // provider state links
@@ -81,6 +86,7 @@ class MyApp extends StatelessWidget {
 
   void startMethods(BuildContext context) {
     context.read<RemoteAssetsProviderState>().getMediaAssetsConfig(context);
+    
   }
 }
 

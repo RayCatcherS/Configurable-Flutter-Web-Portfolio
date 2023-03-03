@@ -32,6 +32,8 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   }
 
   double loadPageOpacity = 1;
+
+  
   
   
   
@@ -185,5 +187,9 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     }
     
   }
+
+
+
+  
 }
 
