@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
 import 'pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
@@ -35,17 +35,17 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => RemoteAssetsProviderState()),
 
           ChangeNotifierProvider(create: (_) => HomeCoverProviderState()),
-          ChangeNotifierProvider(create: (_) => ProjectGroupsProviderState()),
+          ChangeNotifierProvider(create: (_) => ProjectsGroupsProviderState()),
           ChangeNotifierProvider(create: (_) => AboutMeProviderState()),
           ChangeNotifierProvider(create: (_) => ContactMeProviderState()), 
 
 
           // provider state links
-          ChangeNotifierProxyProvider4<ProjectGroupsProviderState, HomeCoverProviderState, AboutMeProviderState, ContactMeProviderState, RemoteAssetsProviderState>(
+          ChangeNotifierProxyProvider4<ProjectsGroupsProviderState, HomeCoverProviderState, AboutMeProviderState, ContactMeProviderState, RemoteAssetsProviderState>(
             create: (context) => RemoteAssetsProviderState(),
             update: (
               BuildContext context,
-              ProjectGroupsProviderState projectGroupsProviderState,
+              ProjectsGroupsProviderState projectGroupsProviderState,
               HomeCoverProviderState homeCoverProviderState,
               AboutMeProviderState aboutMeProviderState,
               ContactMeProviderState contactMeProviderState,

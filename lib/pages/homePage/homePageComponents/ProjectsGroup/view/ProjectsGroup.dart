@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sr_portfolio/costants/font_styles.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 import 'package:sr_portfolio/pages/projectsItem/data/projectsGroup.dart';
 
 import '../../../../projectsItem/projectItem.dart';
 
-class ProjectGroupsWidget extends StatelessWidget {
-  const ProjectGroupsWidget({
+class ProjectsGroupWidget extends StatelessWidget {
+  const ProjectsGroupWidget({
     Key? key
   }) : super(key: key);
 
@@ -80,7 +80,7 @@ class ProjectGroupsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List<ProjectGroup> projectGroups 
-    = context.read<ProjectGroupsProviderState>().projectsGroups;
+    = context.read<ProjectsGroupsProviderState>().projectsGroups;
 
     return Column(
       children: projectGroupList(projectGroups, context),

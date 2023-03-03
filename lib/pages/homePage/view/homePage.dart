@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 
 
 import '../homePageComponents/aboutMe/view/aboutMe.dart';
 import '../homePageComponents/contactMe/view/footer.dart';
 import '../homePageComponents/homeCover/homeCover.dart';
-import '../homePageComponents/ProjectGroups/view/ProjectGroups.dart';
+import '../homePageComponents/ProjectsGroup/view/ProjectsGroup.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -46,8 +46,8 @@ class HomePage extends StatelessWidget {
     allWidgetList.add(HomeCover());
 
     // init projects groups list 
-    List<Widget> projectGroups = ProjectGroupsWidget.projectGroupList(
-        context.read<ProjectGroupsProviderState>().projectsGroups, context);
+    List<Widget> projectGroups = ProjectsGroupWidget.projectGroupList(
+        context.read<ProjectsGroupsProviderState>().projectsGroups, context);
     for(int i = 0; i < projectGroups.length; i++) {
       allWidgetList.add(
         projectGroups[i]

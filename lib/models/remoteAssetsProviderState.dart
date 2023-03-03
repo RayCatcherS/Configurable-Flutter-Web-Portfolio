@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:sr_portfolio/appFunctions.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectGroups/model/ProjectGroupProviderState.dart';
+import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
@@ -14,13 +14,13 @@ import 'package:sr_portfolio/pages/projectsItem/data/projectsGroup.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {
 
-  late ProjectGroupsProviderState projectGroupsProviderState;
+  late ProjectsGroupsProviderState projectGroupsProviderState;
   late HomeCoverProviderState homeCoverProviderState;
   late AboutMeProviderState aboutMeProviderState;
   late ContactMeProviderState contactMeProviderState;
 
   updateLinkedModel({
-    required ProjectGroupsProviderState projectGroupsModel,
+    required ProjectsGroupsProviderState projectGroupsModel,
     required HomeCoverProviderState homeCoverModel,
     required AboutMeProviderState aboutMeModel,
     required ContactMeProviderState contactMeModel,
@@ -36,9 +36,6 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   
   
   Future<void> getMediaAssetsConfig(BuildContext context) async {
-    
-    await Future.delayed(const Duration(seconds: 2));
-    
 
     // download web app data configuration
     

@@ -5,17 +5,17 @@ import 'projectItemData.dart';
 
 class ProjectGroup {
 
-  late final String _projectGroupName;
-  late final String _projectGroupDescription;
+  late final String _projectsGroupName;
+  late final String _projectsGroupDescription;
   late final List<ProjectItemData> _projectItemDataList;
-  ProjectGroup(String projectGroupName, String projectGroupDescription, List<ProjectItemData> projectItemDataList) {
-    _projectGroupName = projectGroupName;
-    _projectGroupDescription = projectGroupDescription;
+  ProjectGroup(String projectGroupName, String projectsGroupDescription, List<ProjectItemData> projectItemDataList) {
+    _projectsGroupName = projectGroupName;
+    _projectsGroupDescription = projectsGroupDescription;
     _projectItemDataList = projectItemDataList;
   }
   ProjectGroup.fromJson(dynamic data) {
-    _projectGroupName = data["projectGroupName"];
-    _projectGroupDescription = data["projectGroupDescription"];
+    _projectsGroupName = data["projectGroupName"];
+    _projectsGroupDescription = data["projectGroupDescription"];
     _projectItemDataList = [];
     for(int i = 0; i < data["projectItemsData"].length; i++) {
 
@@ -60,10 +60,10 @@ class ProjectGroup {
     return _projectItemDataList;
   }
   String get projectGroupName {
-    return _projectGroupName;
+    return _projectsGroupName;
   }
   String get projectGroupDescription {
-    return _projectGroupDescription;
+    return _projectsGroupDescription;
   }
 
   // setters
@@ -71,9 +71,9 @@ class ProjectGroup {
     _projectItemDataList = list;
   }
   set projectGroupName(String s) {
-    _projectGroupName = s;
+    _projectsGroupName = s;
   }
   set projectGroupDescription(String s) {
-    _projectGroupDescription = s;
+    _projectsGroupDescription = s;
   }
 }
