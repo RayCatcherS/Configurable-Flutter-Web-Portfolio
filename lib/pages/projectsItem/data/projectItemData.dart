@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:sr_portfolio/appFunctions.dart';
+import 'package:video_player/video_player.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class ProjectItemData {
@@ -23,9 +24,9 @@ class ProjectItemData {
 
   late final ItemType _itemType;
   late final YouTubeVideo? _youTubePreviewVideo;
-  late final String? _videoPreviewUrl;
-  late final String? _imagePreviewUrl;
-  Uint8List imagePreviewImgData = Uint8List(0);
+  late final String? _mediaPreviewUrl;
+  Uint8List imageMediaPreviewImgData = Uint8List(0);
+  late VideoPlayerController videoMediaController;  
 
   late final String? _imagePlayableReferenceUrl;
 
@@ -54,7 +55,7 @@ class ProjectItemData {
   String get callToActionText {return _callToActionText == null ? "" : _callToActionText!;}
   String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
 
-  String get imagePreviewUrl {return _imagePreviewUrl!;}
+  String get mediaPreviewUrl {return _mediaPreviewUrl!;}
   String get imagePlayableReferenceUrl {return _imagePlayableReferenceUrl!;}
 
 
@@ -75,8 +76,7 @@ class ProjectItemData {
     String? callToActionUrl,
 
     YouTubeVideo? youTubeVideo,
-    String? videoPreviewUrl,
-    String? imagePreviewUrl,
+    String? mediaPreviewUrl,
     String? imagePlayableReferenceUrl
   }) {
 
@@ -105,9 +105,7 @@ class ProjectItemData {
       };
 
     }
-
-    _videoPreviewUrl = videoPreviewUrl;
-    _imagePreviewUrl = imagePreviewUrl;
+    _mediaPreviewUrl = mediaPreviewUrl;
     _imagePlayableReferenceUrl = imagePlayableReferenceUrl;
 
     

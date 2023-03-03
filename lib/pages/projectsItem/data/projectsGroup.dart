@@ -38,7 +38,7 @@ class ProjectGroup {
 
       _projectItemDataList.add(
         ProjectItemData(
-          imagePreviewUrl: data["projectItemsData"][i]["imagePreviewUrl"],
+          mediaPreviewUrl: data["projectItemsData"][i]["mediaPreviewUrl"],
           imagePlayableReferenceUrl: data["projectItemsData"][i]["imagePlayableReferenceUrl"],
           callToActionText: data["projectItemsData"][i]["callToActionText"],
           callToActionUrl: data["projectItemsData"][i]["callToActionUrl"],

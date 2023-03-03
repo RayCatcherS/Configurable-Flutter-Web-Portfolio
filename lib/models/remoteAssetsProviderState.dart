@@ -11,6 +11,7 @@ import 'package:sr_portfolio/pages/homePage/homePageComponents/contactMe/model/c
 import 'package:sr_portfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
 import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
 import 'package:sr_portfolio/pages/projectsItem/data/projectsGroup.dart';
+import 'package:video_player/video_player.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {
 
@@ -140,10 +141,24 @@ class RemoteAssetsProviderState extends ChangeNotifier {
 
 
         // http request raw imagePreview
-        httpPackageUrl = Uri.parse(item.imagePreviewUrl);
-        responseData = await http.get(httpPackageUrl);
-        // set raw imagePreview
-        item.imagePreviewImgData = responseData.bodyBytes;
+        if(item.itemType != ItemType.video) {
+          httpPackageUrl = Uri.parse(item.mediaPreviewUrl);
+          responseData = await http.get(httpPackageUrl);
+          // set raw imagePreview
+          item.imageMediaPreviewImgData = responseData.bodyBytes;
+
+        } else if(item.itemType == ItemType.video) {
+          item.videoMediaController = VideoPlayerController.network(
+            item.mediaPreviewUrl,
+            videoPlayerOptions: VideoPlayerOptions(
+              allowBackgroundPlayback: true,
+            )
+          );
+          await item.videoMediaController.initialize();
+          item.videoMediaController.setLooping(true);
+          item.videoMediaController.setVolume(0);
+          item.videoMediaController.play();
+        }
         
 
 

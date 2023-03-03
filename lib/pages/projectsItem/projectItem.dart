@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:sr_portfolio/UI/responsive.dart';
 import 'package:sr_portfolio/appFunctions.dart';
 import 'package:sr_portfolio/costants/widget_style_constant.dart';
+import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../costants/font_styles.dart';
@@ -187,7 +189,7 @@ class ProjectItem extends StatelessWidget {
               )
             ),
             Image.memory(
-              projectItemData.imagePreviewImgData,
+              projectItemData.imageMediaPreviewImgData,
               fit: BoxFit.cover,
             ),
           ],
@@ -207,7 +209,7 @@ class ProjectItem extends StatelessWidget {
                 fit: StackFit.expand,
                 children: [
                   Image.memory(
-                    projectItemData.imagePreviewImgData,
+                    projectItemData.imageMediaPreviewImgData,
                     fit: BoxFit.cover,
                   ),
                   Center(
@@ -226,8 +228,16 @@ class ProjectItem extends StatelessWidget {
     } else if(projectItemData.itemType == ItemType.video) {
       return AspectRatio(
         aspectRatio: 15/9,
-        child: Container(
-          color: Colors.red,
+        child: 
+        Stack(
+          fit: StackFit.expand,
+          children: [
+            Center(
+              child: projectItemData.videoMediaController.value.isInitialized
+                  ? VideoPlayerWidget(controller: projectItemData.videoMediaController)
+                  : Container(),
+            ),
+          ],
         ),
       );
     } else if(projectItemData.itemType == ItemType.youTubeVideo) {
@@ -424,4 +434,30 @@ class ProjectItem extends StatelessWidget {
     );
   }
 
+}
+
+
+class VideoPlayerWidget extends StatefulWidget {
+  VideoPlayerWidget({
+    Key? key,
+    required VideoPlayerController this.controller
+  }) : super(key: key);
+
+  VideoPlayerController controller;
+
+  @override
+  State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return VisibilityDetector(
+      key: UniqueKey(),
+      onVisibilityChanged: (visibilityInfo) {
+
+        widget.controller.play();
+      },child: VideoPlayer(widget.controller)
+    );
+  }
 }
