@@ -36,8 +36,8 @@ class _FirstLoadingPageState extends State<FirstLoadingPage> {
             curve: Curves.decelerate,
             child: Scaffold(
               backgroundColor: Color.fromARGB(255, 22, 12, 68),
-              body: Consumer<LoadingStringEffectProviderState>(
-                builder: (context, loadingStringEffectProviderState, child) {
+              body: Consumer2<LoadingStringEffectProviderState, RemoteAssetsProviderState>(
+                builder: (context, loadingStringEffectProviderState, remote, child) {
                   return Container(
                     child: Center(
                       child: Padding(

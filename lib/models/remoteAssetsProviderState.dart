@@ -33,17 +33,14 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   }
 
   double loadPageOpacity = 1;
-
-  
   
   
   
   Future<void> getMediaAssetsConfig(BuildContext context) async {
 
     // download web app data configuration
-    
-    // get json data file with https request
-    final httpMediaAssetsConfigPackageUrl = Uri.parse('https://stefanoromanelli.it/remoteAssets/mediaAssetsConfig.json');
+    // get file configuration json from the current web host
+    final httpMediaAssetsConfigPackageUrl = Uri.parse('${Uri.base.scheme}://${Uri.base.authority}/remoteAssets/mediaAssetsConfig.json');
     final http.Response mediaAssetsConfigPackageResponseData = await http.get(httpMediaAssetsConfigPackageUrl);
     final data = json.decode(utf8.decode(mediaAssetsConfigPackageResponseData.bodyBytes));
 
