@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/UI/responsive.dart';
-import 'package:sr_portfolio/costants/font_styles.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
+import 'package:stefanos_portfolio/UI/responsive.dart';
+import 'package:stefanos_portfolio/costants/font_styles.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
+
+import '../../../../../costants/widget_style_constant.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({Key? key}) : super(key: key);

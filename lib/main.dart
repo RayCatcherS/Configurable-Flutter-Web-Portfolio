@@ -3,14 +3,12 @@ import 'dart:js';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/costants/font_styles.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
-import 'package:sr_portfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
+import 'package:stefanos_portfolio/models/remoteAssetsProviderState.dart';
 import 'package:video_player/video_player.dart';
 
+import 'pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
+import 'pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 import 'pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
 import 'pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
 import 'pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';

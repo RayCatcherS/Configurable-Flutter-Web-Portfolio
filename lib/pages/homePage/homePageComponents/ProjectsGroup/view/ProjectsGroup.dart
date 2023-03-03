@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/costants/font_styles.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
-import 'package:sr_portfolio/pages/projectsItem/data/projectsGroup.dart';
+import 'package:stefanos_portfolio/costants/font_styles.dart';
+import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
+import 'package:stefanos_portfolio/pages/projectsItem/data/projectsGroup.dart';
 
 import '../../../../projectsItem/projectItem.dart';
 

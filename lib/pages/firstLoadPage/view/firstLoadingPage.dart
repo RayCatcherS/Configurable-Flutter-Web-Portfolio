@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/costants/font_styles.dart';
-import 'package:sr_portfolio/costants/widget_style_constant.dart';
-import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
-import 'package:sr_portfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
+import 'package:stefanos_portfolio/costants/font_styles.dart';
+import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
+import 'package:stefanos_portfolio/models/remoteAssetsProviderState.dart';
+import 'package:stefanos_portfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 
 class FirstLoadingPage extends StatefulWidget {
   const FirstLoadingPage({super.key});

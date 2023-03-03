@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 
 
+import '../../../models/remoteAssetsProviderState.dart';
+import '../homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
 import '../homePageComponents/aboutMe/view/aboutMe.dart';
 import '../homePageComponents/contactMe/view/footer.dart';
 import '../homePageComponents/homeCover/homeCover.dart';

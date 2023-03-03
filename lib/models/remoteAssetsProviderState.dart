@@ -4,13 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:sr_portfolio/appFunctions.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
-import 'package:sr_portfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
-import 'package:sr_portfolio/pages/projectsItem/data/projectItemData.dart';
-import 'package:sr_portfolio/pages/projectsItem/data/projectsGroup.dart';
+import 'package:stefanos_portfolio/appFunctions.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
+import 'package:stefanos_portfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
+import 'package:stefanos_portfolio/pages/projectsItem/data/projectItemData.dart';
+import 'package:stefanos_portfolio/pages/projectsItem/data/projectsGroup.dart';
 import 'package:video_player/video_player.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {

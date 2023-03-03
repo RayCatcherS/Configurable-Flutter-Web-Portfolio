@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sr_portfolio/appFunctions.dart';
 
 import 'projectItemData.dart';
 
