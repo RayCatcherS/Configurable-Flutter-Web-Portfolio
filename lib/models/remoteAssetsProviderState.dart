@@ -147,19 +147,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           // set raw imagePreview
           item.imageMediaPreviewImgData = responseData.bodyBytes;
 
-        } else if(item.itemType == ItemType.video) {
-          item.videoMediaController = VideoPlayerController.network(
-            item.mediaPreviewUrl,
-            videoPlayerOptions: VideoPlayerOptions(
-              allowBackgroundPlayback: true,
-            )
-          );
-          await item.videoMediaController.initialize();
-          item.videoMediaController.setLooping(true);
-          item.videoMediaController.setVolume(0);
-          item.videoMediaController.play();
-        }
-        
+        } 
 
 
         // http request raw gameAssetImage

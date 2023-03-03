@@ -8,6 +8,7 @@ import 'package:sr_portfolio/costants/widget_style_constant.dart';
 import 'package:sr_portfolio/models/remoteAssetsProviderState.dart';
 import 'package:sr_portfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 import 'package:sr_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
+import 'package:video_player/video_player.dart';
 
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
 import 'pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
@@ -73,9 +74,10 @@ class MyApp extends StatelessWidget {
     
           return Stack(
             children: [
-              HomePage(),
+              TRY()
+              //HomePage(),
               
-              FirstLoadingPage()
+              //FirstLoadingPage()
             ],
           );
         }),
@@ -90,4 +92,36 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class TRY extends StatefulWidget {
+  TRY({Key? key}) : super(key: key);
 
+  @override
+  State<TRY> createState() => _TRYState();
+}
+
+class _TRYState extends State<TRY> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: _controller.value.isInitialized
+          ? AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              child: VideoPlayer(_controller),
+            )
+          : Container(),
+    );
+  }
+}
