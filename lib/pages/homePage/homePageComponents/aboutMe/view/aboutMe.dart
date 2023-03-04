@@ -1,8 +1,8 @@
+import 'package:GameDevPortfolio/UI/responsive.dart';
+import 'package:GameDevPortfolio/costants/font_styles.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stefanos_portfolio/UI/responsive.dart';
-import 'package:stefanos_portfolio/costants/font_styles.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
 
 import '../../../../../costants/widget_style_constant.dart';
 
@@ -23,10 +23,10 @@ class AboutMe extends StatelessWidget {
             children: [
               const SizedBox(height: kDefaultPadding * 10),
               Row(
-                children: const [
+                children: [
                   Expanded(
                     child: Text(
-                        "About Me",
+                        context.read<AboutMeProviderState>().title,
                         style: FontStyles.melodiRegularTitle,
                       ),
                   ),

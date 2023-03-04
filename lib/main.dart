@@ -3,9 +3,9 @@ import 'dart:js';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stefanos_portfolio/models/remoteAssetsProviderState.dart';
 import 'package:video_player/video_player.dart';
 
+import 'models/remoteAssetsProviderState.dart';
 import 'pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
 import 'pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
 
 
           // provider state links
-          ChangeNotifierProxyProvider4<ProjectsGroupsProviderState, HomeCoverProviderState, AboutMeProviderState, ContactMeProviderState, RemoteAssetsProviderState>(
+          ChangeNotifierProxyProvider5<ProjectsGroupsProviderState, HomeCoverProviderState, AboutMeProviderState, ContactMeProviderState, LoadingStringEffectProviderState, RemoteAssetsProviderState>(
             create: (context) => RemoteAssetsProviderState(),
             update: (
               BuildContext context,
@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
               HomeCoverProviderState homeCoverProviderState,
               AboutMeProviderState aboutMeProviderState,
               ContactMeProviderState contactMeProviderState,
+              LoadingStringEffectProviderState loadingStringEffectProviderState,
               RemoteAssetsProviderState? remoteAssetsProviderState
             ) 
 
@@ -60,7 +61,8 @@ class MyApp extends StatelessWidget {
               projectGroupsModel: projectGroupsProviderState,
               homeCoverModel: homeCoverProviderState,
               aboutMeModel: aboutMeProviderState,
-              contactMeModel: contactMeProviderState
+              contactMeModel: contactMeProviderState,
+              loadingStringEffectModel: loadingStringEffectProviderState
             )
           ),
 

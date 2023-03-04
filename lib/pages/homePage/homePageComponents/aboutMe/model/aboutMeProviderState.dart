@@ -5,4 +5,5 @@ class AboutMeProviderState extends ChangeNotifier {
   String pictureProfileUrl = "";
   Uint8List pictureProfileImgData = Uint8List(0);
   String aboutMeDescription = "";
+  String title = "";
 }

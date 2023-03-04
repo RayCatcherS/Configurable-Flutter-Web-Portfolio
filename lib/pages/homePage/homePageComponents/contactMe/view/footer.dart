@@ -1,9 +1,9 @@
+import 'package:GameDevPortfolio/costants/font_styles.dart';
+import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/homeCover/contactBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stefanos_portfolio/costants/font_styles.dart';
-import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/homeCover/contactBar.dart';
 
 class PageFooter extends StatelessWidget {
   const PageFooter({Key? key}) : super(key: key);

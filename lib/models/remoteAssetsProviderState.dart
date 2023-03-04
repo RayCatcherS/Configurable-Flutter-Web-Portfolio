@@ -1,16 +1,17 @@
 import 'dart:convert';
 
+import 'package:GameDevPortfolio/appFunctions.dart';
+import 'package:GameDevPortfolio/pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
+import 'package:GameDevPortfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
+import 'package:GameDevPortfolio/pages/projectsItem/data/projectItemData.dart';
+import 'package:GameDevPortfolio/pages/projectsItem/data/projectsGroup.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:stefanos_portfolio/appFunctions.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/ProjectsGroup/model/ProjectsGroupProviderState.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/contactMe/model/contactMeProviderState.dart';
-import 'package:stefanos_portfolio/pages/homePage/homePageComponents/homeCover/homeCoverProviderState.dart';
-import 'package:stefanos_portfolio/pages/projectsItem/data/projectItemData.dart';
-import 'package:stefanos_portfolio/pages/projectsItem/data/projectsGroup.dart';
 import 'package:video_player/video_player.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {
@@ -19,20 +20,32 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   late HomeCoverProviderState homeCoverProviderState;
   late AboutMeProviderState aboutMeProviderState;
   late ContactMeProviderState contactMeProviderState;
+  late LoadingStringEffectProviderState loadingStringEffectProviderState;
 
   updateLinkedModel({
     required ProjectsGroupsProviderState projectGroupsModel,
     required HomeCoverProviderState homeCoverModel,
     required AboutMeProviderState aboutMeModel,
     required ContactMeProviderState contactMeModel,
+    required LoadingStringEffectProviderState loadingStringEffectModel,
   }) {
     projectGroupsProviderState = projectGroupsModel;
     homeCoverProviderState = homeCoverModel;
     aboutMeProviderState = aboutMeModel;
     contactMeProviderState = contactMeModel;
+    loadingStringEffectProviderState = loadingStringEffectModel;
   }
 
   double loadPageOpacity = 1;
+
+
+  final int _loadBarTotalUnits = 13;
+  int totalItemToLoad = 0;
+  double totalLoadedUnit = 0; 
+  
+  String _loadCharacterUnit = "█";
+  String _processStatusTitle = "process status";
+  String stringLoadState = "";
   
   
   
@@ -40,7 +53,14 @@ class RemoteAssetsProviderState extends ChangeNotifier {
 
     // download web app data configuration
     // get file configuration json from the current web host
-    final httpMediaAssetsConfigPackageUrl = Uri.parse('${Uri.base.scheme}://${Uri.base.authority}/remoteAssets/mediaAssetsConfig.json');
+    final httpMediaAssetsConfigPackageUrl;
+    if (kDebugMode) {
+      httpMediaAssetsConfigPackageUrl = Uri.parse('https://stefanoromanelli.it/remoteAssets/mediaAssetsConfig.json');
+    } else {
+      httpMediaAssetsConfigPackageUrl = Uri.parse('${Uri.base.scheme}://${Uri.base.authority}/remoteAssets/mediaAssetsConfig.json');
+    }
+    
+     
     final http.Response mediaAssetsConfigPackageResponseData = await http.get(httpMediaAssetsConfigPackageUrl);
     final data = json.decode(utf8.decode(mediaAssetsConfigPackageResponseData.bodyBytes));
 
@@ -51,8 +71,13 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     _deserializeHomeCover(data);
     
     // set about me data
-    _aboutMe(data);
+    _deserializeAboutMe(data);
 
+    // set Contact Me data
+    _deserializeContactMe(data);
+
+    // set Owner Info data
+    _deserializeOwnerInfo(data);
 
     if(kDebugMode) {
       ScaffoldMessenger.of(context).clearSnackBars();
@@ -67,7 +92,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     
 
     
-    loadPageOpacity = 0;
+    loadPageOpacity = 1;
     notifyListeners();
   }
 
@@ -100,15 +125,21 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     homeCoverProviderState.linkedinUrl = data["assetsData"]["homeCover"]["linkedinURL"];
     homeCoverProviderState.personalEmail = data["assetsData"]["homeCover"]["personalEmail"];
     homeCoverProviderState.homeCoverUrl = data["assetsData"]["homeCover"]["coverImageUrl"];
-  }
 
-  void _aboutMe(dynamic data) {
+    homeCoverProviderState.coverDescription1 = data["assetsData"]["homeCover"]["coverDescription1"];
+    homeCoverProviderState.coverDescription2 = data["assetsData"]["homeCover"]["coverDescription2"];
+  }
+  void _deserializeOwnerInfo(dynamic data) {
+    homeCoverProviderState.portfolioOwnerName = data["assetsData"]["portfolioOwner"];
+    homeCoverProviderState.portfolioOwnerRole = data["assetsData"]["role"];
+  }
+  void _deserializeAboutMe(dynamic data) {
     
     aboutMeProviderState.pictureProfileUrl = data["assetsData"]["aboutMe"]["pictureProfile"];
     aboutMeProviderState.aboutMeDescription = data["assetsData"]["aboutMe"]["aboutMeDescription"];
+    aboutMeProviderState.title = data["assetsData"]["aboutMe"]["title"];
   }
-
-  void _contactMe(dynamic data) {
+  void _deserializeContactMe(dynamic data) {
     
     contactMeProviderState.contactMeTitle = data["assetsData"]["contactMe"]["contactMeTitle"];
     contactMeProviderState.contactMeDescription = data["assetsData"]["contactMe"]["contactMeDescription"];
@@ -123,9 +154,22 @@ class RemoteAssetsProviderState extends ChangeNotifier {
       AppFunctions.showScaffoldMessage('starting media assets download', context);
     }
     
+    
 
     Uri httpPackageUrl;
     http.Response responseData;
+
+
+    // init load bar values
+    for(int i = 0; i < projectGroupsProviderState.projectsGroups.length; i++) {
+      for(int j = 0; j < projectGroupsProviderState.projectsGroups[i].projectItemDataList.length; j++) {
+        totalItemToLoad = totalItemToLoad + 1;
+        totalItemToLoad = totalItemToLoad + 1;
+        totalItemToLoad = totalItemToLoad + 1;
+      }
+    }
+    totalItemToLoad = totalItemToLoad + 2;
+
 
 
     // initilize projectGroups
@@ -144,7 +188,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           // set raw imagePreview
           item.imageMediaPreviewImgData = responseData.bodyBytes;
 
-        } else if(item.itemType == ItemType.video) {
+        } else if(item.itemType == ItemType.video) { // initialize videoPreview
 
           item.videoMediaPreviewController = VideoPlayerController.network(
             item.mediaPreviewUrl,
@@ -158,20 +202,21 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           item.videoMediaPreviewController.setLooping(true);
           //item.videoMediaPreviewController.play();
         }
-
+        addLoadingStringBar();
 
         // http request raw gameAssetImage
         httpPackageUrl = Uri.parse(item.gameAssetImageURL);
         responseData = await http.get(httpPackageUrl);
         // set raw gameAssetImageImgData
         item.gameAssetImageImgData = responseData.bodyBytes;
-
+        addLoadingStringBar();
 
         // http request raw backgroundCoverImageUrl
         httpPackageUrl = Uri.parse(item.backgroundCoverImageUrl);
         responseData = await http.get(httpPackageUrl);
         // set raw backgroundCoverImageUrl
         item.backgroundCoverImgData = responseData.bodyBytes;
+        addLoadingStringBar();
       }
       
     }
@@ -182,8 +227,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     responseData = await http.get(httpPackageUrl);
     // set raw homeCoverImgData
     homeCoverProviderState.homeCoverImgData = responseData.bodyBytes;
-    
-
+    addLoadingStringBar();
 
 
     // http request raw aboutMeImgData
@@ -191,18 +235,26 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     responseData = await http.get(httpPackageUrl);
     // set raw aboutMeImgData
     aboutMeProviderState.pictureProfileImgData = responseData.bodyBytes;
+    addLoadingStringBar();
+    
 
 
 
     if (kDebugMode) {
       ScaffoldMessenger.of(context).clearSnackBars();
-      AppFunctions.showScaffoldMessage('data assets download complete', context);
+      AppFunctions.showScaffoldMessage('data assets download complete (${stringLoadState.length} items loaded)', context);
     }
     
   }
 
+  void addLoadingStringBar() {
+    totalLoadedUnit = totalLoadedUnit + (_loadBarTotalUnits/totalItemToLoad);
 
-
-  
+    stringLoadState = _processStatusTitle + " ";
+    for(int i = 0; i < totalLoadedUnit; i++) {
+      stringLoadState = stringLoadState + _loadCharacterUnit;
+    }
+    notifyListeners();
+  }
 }
 

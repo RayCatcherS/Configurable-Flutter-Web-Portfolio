@@ -1,12 +1,17 @@
 {
     "assetsData" : {
+        "portfolioOwner" : "Stefano Romanelli",
+        "role" : "game designing / game programming",
         "homeCover" : {
             "coverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.png",
             "personalEmail" : "mailto:romanelli1996@gmail.com",
-            "linkedinURL" : "https://www.linkedin.com/in/stefano-romanelli-bb80a6108"
+            "linkedinURL" : "https://www.linkedin.com/in/stefano-romanelli-bb80a6108",
+            "coverDescription1" : "Hello! Il mio nome è Stefano e sono attualmente un studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
+            "coverDescription2" : "In questo portfolio puoi trovare i miei progetti professionali e personali a cui ho lavorato."
         },
         "aboutMe" : {
             "pictureProfile" : "https://stefanoromanelli.it/remoteAssets/pictureProfile.jpg",
+            "title" : "About Me",
             "aboutMeDescription" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
         },
         "contactMe" : {
@@ -123,7 +128,7 @@
                     },
                     {
                         "itemType" : "ItemType.urlImage",
-                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.png",
+                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/muovoLogo.png",
                         "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=kvMvK_FZabo&ab_channel=LuciaPatrono",
                         "title": "Muovo",
                         "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",

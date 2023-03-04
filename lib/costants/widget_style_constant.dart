@@ -1,5 +1,5 @@
+import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:stefanos_portfolio/UI/responsive.dart';
 
 const double kDefaultPadding = 10;
 const double kDefaultDesktopPagePadding = 95;

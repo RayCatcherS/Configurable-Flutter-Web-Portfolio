@@ -1,9 +1,9 @@
+import 'package:GameDevPortfolio/UI/responsive.dart';
+import 'package:GameDevPortfolio/costants/font_styles.dart';
+import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:stefanos_portfolio/UI/responsive.dart';
-import 'package:stefanos_portfolio/costants/font_styles.dart';
-import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
 
 import 'contactBar.dart';
 import 'homeCoverProviderState.dart';
@@ -42,12 +42,12 @@ class HomeCover extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "STEFANO ROMANELLI",
+                  Text(
+                    context.read<HomeCoverProviderState>().portfolioOwnerName.toUpperCase(),
                     style: FontStyles.melodiSemiBoldTitle,
                   ),
                   Text(
-                    "GAME DESIGNING / GAME PROGRAMMING",
+                    context.read<HomeCoverProviderState>().portfolioOwnerRole.toUpperCase(),
                     style: FontStyles.melodiMonoMediumSubTitle,
                   ),
                   const SizedBox(height: kDefaultPadding * 4),
@@ -58,12 +58,12 @@ class HomeCover extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Hello! Il mio nome è Stefano e sono attualmente un studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
+                          context.read<HomeCoverProviderState>().coverDescription1,
                           style: FontStyles.melodiMonoMedium,
                         ),
                         const SizedBox(height: kDefaultPadding * 3),
                         Text(
-                          "In questo portfolio puoi trovare i miei progetti professionali e personali a cui ho lavorato.",
+                          context.read<HomeCoverProviderState>().coverDescription2,
                           style: FontStyles.melodiMonoMedium,
                         ),
                       ],

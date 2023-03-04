@@ -1,10 +1,10 @@
 import 'dart:js';
 import 'dart:ui';
 
+import 'package:GameDevPortfolio/UI/responsive.dart';
+import 'package:GameDevPortfolio/appFunctions.dart';
+import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
-import 'package:stefanos_portfolio/UI/responsive.dart';
-import 'package:stefanos_portfolio/appFunctions.dart';
-import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';

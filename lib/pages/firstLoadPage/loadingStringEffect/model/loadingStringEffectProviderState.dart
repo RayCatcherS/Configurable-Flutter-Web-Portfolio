@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class LoadingStringEffectProviderState extends ChangeNotifier {
+  
+
+
   String stringLine1 = "> ";
-  String _line1Part1 = "loading data from: https://www.stefanoromanelli.it";
+  String _line1Part1 = "loading data from: ${Uri.base.scheme}://${Uri.base.authority}";
   String _donestr = "DONE";
 
   String stringLine2 = "";
   String _line2Part1 = "> ";
-  String _line2Part2 = "Stefano Romanelli's portfolio is loading";
+  String _line2Part2 = "the web app portfolio is loading";
 
 
   
@@ -24,6 +27,9 @@ class LoadingStringEffectProviderState extends ChangeNotifier {
     double emptySecondLineWTMs = 500; // empty first line waiting time
     double tTargetMs = 0; // time target
 
+
+    // line init
+    _line2Part2 = _line2Part2;
 
     // blinking cursor
     tTargetMs = s.elapsedMilliseconds + emptyFirstLineWTMs;

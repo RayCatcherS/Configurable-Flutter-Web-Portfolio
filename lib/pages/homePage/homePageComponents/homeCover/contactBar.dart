@@ -1,8 +1,8 @@
+import 'package:GameDevPortfolio/appFunctions.dart';
+import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:stefanos_portfolio/appFunctions.dart';
-import 'package:stefanos_portfolio/costants/widget_style_constant.dart';
 
 import 'homeCoverProviderState.dart';
 

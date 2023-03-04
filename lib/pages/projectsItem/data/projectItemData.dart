@@ -1,5 +1,5 @@
+import 'package:GameDevPortfolio/appFunctions.dart';
 import 'package:flutter/services.dart';
-import 'package:stefanos_portfolio/appFunctions.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 

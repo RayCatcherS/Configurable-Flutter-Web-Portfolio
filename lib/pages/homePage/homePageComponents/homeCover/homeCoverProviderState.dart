@@ -8,5 +8,12 @@ class HomeCoverProviderState extends ChangeNotifier {
   String personalEmail = "";
   String linkedinUrl = "";
 
+
+  String coverDescription1 = "";
+  String coverDescription2 = "";
+  
+  String portfolioOwnerName = "";
+  String portfolioOwnerRole = "";
+
   // notifyListeners();
 }
