@@ -2,6 +2,7 @@ import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:GameDevPortfolio/costants/font_styles.dart';
 import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,8 @@ class HomeCover extends StatelessWidget {
       children: [
         
         Positioned.fill(
-          child: Image.memory(
+          child: context.read<HomeCoverProviderState>().homeCoverImgData.isEmpty ? Container() :
+          Image.memory(
             context.read<HomeCoverProviderState>().homeCoverImgData,
             fit: BoxFit.cover,
             alignment: Alignment.center,

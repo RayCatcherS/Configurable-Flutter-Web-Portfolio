@@ -75,8 +75,7 @@ class MyApp extends StatelessWidget {
           return Stack(
             children: [
               HomePage(),
-              
-              FirstLoadingPage()
+              FirstLoadingPage(),
             ],
           );
         }),

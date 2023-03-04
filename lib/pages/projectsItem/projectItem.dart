@@ -5,6 +5,7 @@ import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:GameDevPortfolio/appFunctions.dart';
 import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -37,7 +38,8 @@ class ProjectItem extends StatelessWidget {
           children: [
             // cover project background 
             Positioned.fill(
-              child: Image.memory(
+              child: projectItemData.backgroundCoverImgData.isEmpty ? Container() :
+              Image.memory(
                   projectItemData.backgroundCoverImgData,
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
@@ -113,8 +115,8 @@ class ProjectItem extends StatelessWidget {
               child: ClipRRect(
                 child: ImageFiltered(
                   imageFilter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                  child: Image.memory(
-                      
+                  child: projectItemData.backgroundCoverImgData.isEmpty ? Container() :
+                  Image.memory(
                       projectItemData.backgroundCoverImgData,
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
@@ -182,10 +184,9 @@ class ProjectItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Center(
-              child: CircularProgressIndicator(
-
-              )
+              child: CircularProgressIndicator()
             ),
+            projectItemData.imageMediaPreviewImgData.isEmpty ? Container() :
             Image.memory(
               projectItemData.imageMediaPreviewImgData,
               fit: BoxFit.cover,
@@ -206,6 +207,7 @@ class ProjectItem extends StatelessWidget {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
+                  projectItemData.imageMediaPreviewImgData.isEmpty ? Container() :
                   Image.memory(
                     projectItemData.imageMediaPreviewImgData,
                     fit: BoxFit.cover,
@@ -422,7 +424,8 @@ class ProjectItem extends StatelessWidget {
     return Center(
       child: AspectRatio(
         aspectRatio: 20/9,
-        child: Image.memory(
+        child: projectItemData.gameAssetImageImgData.isEmpty ? Container() :
+        Image.memory(
                           
             projectItemData.gameAssetImageImgData,
             fit: BoxFit.fitHeight,

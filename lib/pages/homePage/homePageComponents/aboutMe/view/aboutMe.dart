@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:GameDevPortfolio/costants/font_styles.dart';
 import 'package:GameDevPortfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';
@@ -70,9 +72,11 @@ class AboutMe extends StatelessWidget {
   }
 
   Widget profileImage(BuildContext context) {
+    
     return ClipRRect(
       borderRadius: BorderRadius.circular(kBorderRadius),
-      child: Image.memory(
+      child: context.read<AboutMeProviderState>().pictureProfileImgData.isEmpty ? Container() :
+      Image.memory(
         context.read<AboutMeProviderState>().pictureProfileImgData,
         fit: BoxFit.cover,
         height: Responsive.isMobile(context) ? null : 300,
