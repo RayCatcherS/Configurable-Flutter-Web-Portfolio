@@ -39,7 +39,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   double loadPageOpacity = 1;
 
 
-  final int _loadBarTotalUnits = 13;
+  final int _loadBarTotalUnits = 10;
   int totalItemToLoad = 0;
   double totalLoadedUnit = 0; 
   
@@ -92,7 +92,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
     
 
     
-    loadPageOpacity = 1;
+    loadPageOpacity = 0;
     notifyListeners();
   }
 
