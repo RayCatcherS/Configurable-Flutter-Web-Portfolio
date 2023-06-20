@@ -1,11 +1,9 @@
-import 'dart:js';
 import 'dart:ui';
 
 import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:GameDevPortfolio/appFunctions.dart';
 import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -177,7 +175,7 @@ class ProjectItem extends StatelessWidget {
   }
 
   Widget getCoverMediaWidget(BuildContext context) {
-    if(projectItemData.itemType == ItemType.Image) {
+    if(projectItemData.itemType == ItemType.image) {
       return AspectRatio(
         aspectRatio: 15/9,
         child: Stack(
@@ -252,12 +250,8 @@ class ProjectItem extends StatelessWidget {
                     children: [
                       AspectRatio(
                         aspectRatio: 15 / 9,
-                        child: YoutubePlayerScaffold(
-                          controller: projectItemData.yTcontroller,
-                          builder: (context, player) {
-                            return player;
-                          },
-                        ),
+                        child: YoutubePlayerWidget()
+                        
                       ),
                       PointerInterceptor(
                         child: Stack(
@@ -438,6 +432,7 @@ class ProjectItem extends StatelessWidget {
 }
 
 
+// ignore: must_be_immutable
 class VideoPlayerWidget extends StatefulWidget {
   VideoPlayerWidget({
     Key? key,
@@ -452,6 +447,7 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
+
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
@@ -463,6 +459,31 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       child: widget.controller.value.isInitialized
               ? VideoPlayer(widget.controller)
               : Container(),
+    );
+  }
+}
+
+class YoutubePlayerWidget extends StatefulWidget {
+  YoutubePlayerWidget({Key? key}) : super(key: key);
+
+  @override
+  State<YoutubePlayerWidget> createState() => _YoutubePlayerWidgetState();
+}
+
+class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
+  final _controller = YoutubePlayerController.fromVideoId(
+    videoId: 'ZQyLJIytbTU',
+    autoPlay: false,
+    params: const YoutubePlayerParams(showFullscreenButton: true),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return YoutubePlayerScaffold(
+      controller: _controller,
+      builder: (context, player) {
+        return player;
+      },
     );
   }
 }

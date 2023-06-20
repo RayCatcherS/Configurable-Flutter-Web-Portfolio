@@ -13,6 +13,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {
 
@@ -45,7 +46,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
   
   String _loadCharacterUnit = "█";
   String _processStatusTitle = "process status";
-  String stringLoadState = "";
+  String stringLoadState = "process status";
   
   
   
@@ -201,6 +202,12 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           item.videoMediaPreviewController.setVolume(0);
           item.videoMediaPreviewController.setLooping(true);
           //item.videoMediaPreviewController.play();
+        } else if(item.itemType == ItemType.youTubeVideo) {
+          item.yTcontroller = YoutubePlayerController.fromVideoId(
+            videoId: 'cEx8YRziQ1w',
+          );
+          item.yTcontroller.init();
+          item.yTcontroller.mute();
         }
         addLoadingStringBar();
 

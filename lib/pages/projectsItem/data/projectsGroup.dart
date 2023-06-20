@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'projectItemData.dart';
 
 class ProjectGroup {
@@ -18,9 +16,9 @@ class ProjectGroup {
     _projectItemDataList = [];
     for(int i = 0; i < data["projectItemsData"].length; i++) {
 
-      ItemType itemType = ItemType.Image; 
+      ItemType itemType = ItemType.image; 
       if(data["projectItemsData"][i]["itemType"] == "ItemType.urlImage") {
-        itemType = ItemType.Image;
+        itemType = ItemType.image;
       } else if(data["projectItemsData"][i]["itemType"] == "ItemType.urlImagePlayableReference") {
         itemType = ItemType.imagePlayableReference;
       } else if(data["projectItemsData"][i]["itemType"] == "ItemType.urlVideo") {

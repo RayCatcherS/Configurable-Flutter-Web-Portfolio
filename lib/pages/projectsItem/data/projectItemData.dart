@@ -17,21 +17,18 @@ class ProjectItemData {
   Uint8List backgroundCoverImgData = Uint8List(0);
   
   late final String? _backgroundCoverVideoUrl;
-  late final String _backgroundDescriptionImage;
 
   late final String? _callToActionText; 
   late final String? _callToActionUrl;
 
   late final ItemType _itemType;
-  late final YouTubeVideo? _youTubePreviewVideo;
   late final String? _mediaPreviewUrl;
   Uint8List imageMediaPreviewImgData = Uint8List(0);
   late final VideoPlayerController videoMediaPreviewController;
 
   late final String? _imagePlayableReferenceUrl;
 
-  late final YoutubePlayerController _yTcontroller;
-  YoutubePlayerController get yTcontroller { return _yTcontroller;}
+  late YoutubePlayerController yTcontroller = YoutubePlayerController();
 
 
   
@@ -75,7 +72,6 @@ class ProjectItemData {
     String? callToActionText,
     String? callToActionUrl,
 
-    YouTubeVideo? youTubeVideo,
     String? mediaPreviewUrl,
     String? imagePlayableReferenceUrl
   }) {
@@ -97,14 +93,8 @@ class ProjectItemData {
 
 
     _itemType = itemType;
-    _youTubePreviewVideo = youTubeVideo;
-    if(_youTubePreviewVideo != null) {
-      //  _youTubeVideo!.videoId
-      _yTcontroller = YoutubePlayerController()..onInit = (){
-        _yTcontroller.cueVideoById(videoId: _youTubePreviewVideo!.videoId, startSeconds: 0);
-      };
-
-    }
+    
+    
     _mediaPreviewUrl = mediaPreviewUrl;
     _imagePlayableReferenceUrl = imagePlayableReferenceUrl;
 
@@ -112,22 +102,11 @@ class ProjectItemData {
     
   }
   void openYoutubeVideoPage() {
-    AppFunctions.openPageInANewTab("https://youtu.be/${_youTubePreviewVideo!.videoId}");
+    AppFunctions.openPageInANewTab(_imagePlayableReferenceUrl!);
   }
 }
 
 
-class YouTubeVideo {
-  late final String _videoId;
-  String get videoId {return _videoId;}
-  YouTubeVideo({
-    required String videoId
-  }) {
-    _videoId = videoId;
-
-    
-  }
-}
 
 class Company {
   late final String _companyName;
@@ -146,7 +125,7 @@ class Company {
 }
 
 enum ItemType {
-  Image,
+  image,
   imagePlayableReference,
   video,
   youTubeVideo

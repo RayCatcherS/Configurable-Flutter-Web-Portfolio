@@ -1,10 +1,7 @@
-import 'dart:js';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
-
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'models/remoteAssetsProviderState.dart';
 import 'pages/firstLoadPage/loadingStringEffect/model/loadingStringEffectProviderState.dart';
 import 'pages/firstLoadPage/view/firstLoadingPage.dart';
@@ -16,6 +13,7 @@ import 'pages/homePage/view/homePage.dart';
 
 void main() {
   runApp(MyApp());
+  setUrlStrategy(PathUrlStrategy());
 }
 
 class MyApp extends StatelessWidget {
