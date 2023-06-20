@@ -206,6 +206,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           item.yTcontroller = YoutubePlayerController.fromVideoId(
             videoId: 'cEx8YRziQ1w',
           );
+          // ignore: invalid_use_of_internal_member
           item.yTcontroller.init();
           item.yTcontroller.mute();
         }

@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:GameDevPortfolio/UI/responsive.dart';
 import 'package:GameDevPortfolio/costants/font_styles.dart';
 import 'package:GameDevPortfolio/pages/homePage/homePageComponents/aboutMe/model/aboutMeProviderState.dart';

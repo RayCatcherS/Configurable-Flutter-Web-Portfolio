@@ -3,12 +3,12 @@ import 'package:GameDevPortfolio/costants/font_styles.dart';
 import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'contactBar.dart';
 import 'homeCoverProviderState.dart';
 
+// ignore: must_be_immutable
 class HomeCover extends StatelessWidget {
 
   HomeCover({Key? key}) : super(key: key);

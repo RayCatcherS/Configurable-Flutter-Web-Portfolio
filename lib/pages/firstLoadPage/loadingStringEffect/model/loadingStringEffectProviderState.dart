@@ -6,7 +6,6 @@ class LoadingStringEffectProviderState extends ChangeNotifier {
 
   String stringLine1 = "> ";
   String _line1Part1 = "loading data from: ${Uri.base.scheme}://${Uri.base.authority}";
-  String _donestr = "DONE";
 
   String stringLine2 = "";
   String _line2Part1 = "> ";
