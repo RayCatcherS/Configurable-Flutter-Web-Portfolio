@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+//import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class RemoteAssetsProviderState extends ChangeNotifier {
 
@@ -207,12 +207,12 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           //item.videoMediaPreviewController.play();
 
         } else if(item.itemType == ItemType.youTubeVideo) {
-          item.yTcontroller = YoutubePlayerController.fromVideoId(
+          /*item.yTcontroller = YoutubePlayerController.fromVideoId(
             videoId: 'cEx8YRziQ1w',
           );
           // ignore: invalid_use_of_internal_member
           item.yTcontroller.init();
-          item.yTcontroller.mute();
+          item.yTcontroller.mute();*/
         }
         addLoadingStringBar();
 

@@ -6,12 +6,12 @@ import 'package:GameDevPortfolio/costants/widget_style_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+//import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../costants/font_styles.dart';
 import 'data/projectItemData.dart';
 
-import 'package:pointer_interceptor/pointer_interceptor.dart';
+//import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 
 class ProjectItem extends StatelessWidget {
@@ -45,15 +45,16 @@ class ProjectItem extends StatelessWidget {
               ) : 
 
               projectItemData.backgroundType == ItemCoverBackgroundType.video ?
-              SizedBox.expand(
-                child: FittedBox(
-                  alignment: Alignment.center,
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    height: projectItemData.itemBackgroundVideoController.value.size.height,
-                    width: projectItemData.itemBackgroundVideoController.value.size.width,
-                    child: VideoPlayerWidget(controller: projectItemData.itemBackgroundVideoController)
-                  )
+              ClipRRect(
+                child: Container(
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: SizedBox(
+                      height: projectItemData.itemBackgroundVideoController.value.size.height,
+                      width: projectItemData.itemBackgroundVideoController.value.size.width,
+                      child: VideoPlayerWidget(controller: projectItemData.itemBackgroundVideoController)
+                    )
+                  ),
                 ),
               ) :
               Container()
@@ -128,9 +129,13 @@ class ProjectItem extends StatelessWidget {
               child: ClipRRect(
                 child: ImageFiltered(
                   imageFilter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                  child: projectItemData.backgroundCoverImgData.isEmpty ? Container() :
+                  child: projectItemData.backgroundCoverImgData.isNotEmpty ? 
                   Image.memory(
                       projectItemData.backgroundCoverImgData,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                  ) : Image.memory(
+                      projectItemData.imageMediaPreviewImgData,
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                   ),
@@ -258,7 +263,7 @@ class ProjectItem extends StatelessWidget {
         aspectRatio: 15/9,
         child: Stack(
           children: [
-            YoutubeValueBuilder(
+            /*YoutubeValueBuilder(
               controller: projectItemData.yTcontroller, // This can be omitted, if using `YoutubePlayerControllerProvider`
               builder: (context, value) {
                   return Stack(
@@ -307,7 +312,7 @@ class ProjectItem extends StatelessWidget {
                     ],
                   );
               },
-            ),
+            ),*/
             
             
           ],
@@ -478,7 +483,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   }
 }
 
-class YoutubePlayerWidget extends StatefulWidget {
+/*class YoutubePlayerWidget extends StatefulWidget {
   YoutubePlayerWidget({Key? key}) : super(key: key);
 
   @override
@@ -486,7 +491,7 @@ class YoutubePlayerWidget extends StatefulWidget {
 }
 
 class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
-  final _controller = YoutubePlayerController.fromVideoId(
+ final _controller = YoutubePlayerController.fromVideoId(
     videoId: 'ZQyLJIytbTU',
     autoPlay: false,
     params: const YoutubePlayerParams(showFullscreenButton: true),
@@ -501,4 +506,4 @@ class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
       },
     );
   }
-}
+}*/

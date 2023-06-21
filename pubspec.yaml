@@ -13,17 +13,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  # cupertino_icons: ^1.0.2
   
   # services
   provider: ^5.0.0
-  youtube_player_iframe: ^4.0.4
+  # youtube_player_iframe: ^4.0.4
   http: ^0.13.5
   video_player: ^2.5.3
   visibility_detector: ^0.3.3
 
   #ui tool
-  pointer_interceptor: ^0.9.3+3
+  # pointer_interceptor: ^0.9.3+3
 
   # icons
   font_awesome_flutter: ^10.2.1
