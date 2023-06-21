@@ -150,7 +150,7 @@ class ProjectItem extends StatelessWidget {
             Positioned.fill(
               child: Container(
                 color: Responsive.isMobile(context) ? 
-                Colors.black.withOpacity(0.7) :
+                Colors.black.withOpacity(0.55) :
                 Colors.black.withOpacity(0.1),
               )
             ),
