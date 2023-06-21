@@ -128,7 +128,9 @@ class ProjectItem extends StatelessWidget {
             Positioned.fill(
               child: ClipRRect(
                 child: ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                  imageFilter: Responsive.isMobile(context) ? // Mobile browser doesn't support sigma over a 30 value
+                  ImageFilter.blur(sigmaX: 10, sigmaY: 10, tileMode: TileMode.decal) :
+                  ImageFilter.blur(sigmaX: 100, sigmaY: 100, tileMode: TileMode.decal),
                   child: projectItemData.backgroundCoverImgData.isNotEmpty ? 
                   Image.memory(
                       projectItemData.backgroundCoverImgData,
@@ -137,6 +139,7 @@ class ProjectItem extends StatelessWidget {
                   ) : Image.memory(
                       projectItemData.imageMediaPreviewImgData,
                       fit: BoxFit.cover,
+                      
                       alignment: Alignment.center,
                   ),
                 ),
@@ -146,7 +149,9 @@ class ProjectItem extends StatelessWidget {
             // description image background color filter
             Positioned.fill(
               child: Container(
-                color: Colors.black.withOpacity(0.1),
+                color: Responsive.isMobile(context) ? 
+                Colors.black.withOpacity(0.7) :
+                Colors.black.withOpacity(0.1),
               )
             ),
 
