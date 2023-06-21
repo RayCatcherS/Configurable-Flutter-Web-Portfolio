@@ -2,9 +2,9 @@
 Web portfolio
 
 # Build alert
-Use this command to build, solves graphical mobile issue:
+Use this command to build:
 ```
-flutter build web --web-renderer canvaskit --release
+flutter build web --web-renderer html --release
 ```
 
 # Host server alert
