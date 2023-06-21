@@ -32,6 +32,12 @@ class ProjectGroup {
         companyURL: data["projectItemsData"][i]["company"]['companyUrl']
       );
       
+      ItemCoverBackgroundType itemCoverBackgroundType = ItemCoverBackgroundType.image;
+      if(data["projectItemsData"][i]["itemCoverBackgroundType"] == "image") {
+        itemCoverBackgroundType = ItemCoverBackgroundType.image;
+      } else {
+        itemCoverBackgroundType = ItemCoverBackgroundType.video;
+      }
 
       _projectItemDataList.add(
         ProjectItemData(
@@ -47,7 +53,10 @@ class ProjectGroup {
           professionalRoles: data["projectItemsData"][i]["professionalRoles"],
           platforms: data["projectItemsData"][i]["platforms"],
           company: company,
-          backgroundCoverImageUrl: data["projectItemsData"][i]["backgroundCoverImageUrl"])
+
+          backgroundType: itemCoverBackgroundType,
+          backgroundCoverImageUrl: data["projectItemsData"][i]["backgroundCoverImageUrl"],
+          backgroundCoverVideoUrl: data["projectItemsData"][i]["backgroundCoverVideoUrl"])
       );
     }
   }

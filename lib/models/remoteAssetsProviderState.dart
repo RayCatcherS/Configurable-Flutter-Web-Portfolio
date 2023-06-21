@@ -182,6 +182,9 @@ class RemoteAssetsProviderState extends ChangeNotifier {
         ProjectItemData item = projectGroupsProviderState.projectsGroups[i].projectItemDataList[j];
 
 
+
+        
+
         // http request raw imagePreview
         if(item.itemType != ItemType.video) {
           httpPackageUrl = Uri.parse(item.mediaPreviewUrl);
@@ -202,6 +205,7 @@ class RemoteAssetsProviderState extends ChangeNotifier {
           item.videoMediaPreviewController.setVolume(0);
           item.videoMediaPreviewController.setLooping(true);
           //item.videoMediaPreviewController.play();
+
         } else if(item.itemType == ItemType.youTubeVideo) {
           item.yTcontroller = YoutubePlayerController.fromVideoId(
             videoId: 'cEx8YRziQ1w',
@@ -219,12 +223,32 @@ class RemoteAssetsProviderState extends ChangeNotifier {
         item.gameAssetImageImgData = responseData.bodyBytes;
         addLoadingStringBar();
 
-        // http request raw backgroundCoverImageUrl
-        httpPackageUrl = Uri.parse(item.backgroundCoverImageUrl);
-        responseData = await http.get(httpPackageUrl);
-        // set raw backgroundCoverImageUrl
-        item.backgroundCoverImgData = responseData.bodyBytes;
-        addLoadingStringBar();
+
+        // initialize background video 
+        if(item.backgroundType == ItemCoverBackgroundType.video) {
+          
+
+          item.itemBackgroundVideoController = VideoPlayerController.network(
+            item.backgroundCoverVideoUrl!,
+            videoPlayerOptions: VideoPlayerOptions(
+              mixWithOthers: false              
+            )
+          );
+          await item.itemBackgroundVideoController.initialize();
+
+          item.itemBackgroundVideoController.setVolume(0);
+          item.itemBackgroundVideoController.setLooping(true);
+          //item.videoMediaPreviewController.play();
+
+        } else if(item.backgroundType == ItemCoverBackgroundType.image) {
+          // http request raw backgroundCoverImageUrl
+          httpPackageUrl = Uri.parse(item.backgroundCoverImageUrl);
+          responseData = await http.get(httpPackageUrl);
+          // set raw backgroundCoverImageUrl
+          item.backgroundCoverImgData = responseData.bodyBytes;
+          addLoadingStringBar();
+        }
+        
       }
       
     }

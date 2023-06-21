@@ -25,7 +25,7 @@
                 "projectItemsData" : [
                     {
                         "itemType" : "ItemType.urlImagePlayableReference",
-                        "mediaPreviewUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCVideoImage.png",
+                        "mediaPreviewUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCVideoImage.jpg",
                         "imagePlayableReferenceUrl" : "https://www.youtube.com/watch?v=d2o9U2H_hgM&ab_channel=TEDDYNetwork",
                         "title" : "My Clinical Trial Center",
                         "description" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
@@ -38,7 +38,9 @@
                         "platforms" : "(iOS | Android)",
                         "callToActionText" : "Article / Download",
                         "callToActionUrl" : "https://www.cvbf.net/news/my-clinical-trial-center-serious-videogame",
-                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCCoverImage.png"
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCCoverImage.jpg",
+                        "backgroundCoverVideoUrl" : ""
                     }
                 ]
             }, 
@@ -61,7 +63,9 @@
                         "platforms" : "(Windows)",
                         "callToActionText" : "Github / Download",
                         "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung",
-                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.jpg"
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.jpg",
+                        "backgroundCoverVideoUrl" : ""
                     }
                 ]
             },
@@ -71,7 +75,7 @@
                 "projectItemsData" : [
                     {
                         "itemType": "ItemType.urlImagePlayableReference",
-                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/sciFireVideoImage.png",
+                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/sciFireVideoImage.jpg",
                         "imagePlayableReferenceUrl": "https://youtube.com/shorts/uZXDRLjslM8",
                         "title": "Sci-Fire",
                         "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
@@ -84,7 +88,9 @@
                         "platforms": "(iOS | Android)",
                         "callToActionText": "Try It",
                         "callToActionUrl": "https://celebrateit.it/sciFire/",
-                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/SciFireCoverVideo.gif"
+                        "itemCoverBackgroundType" : "video",
+                        "backgroundCoverImageUrl": "",
+                        "backgroundCoverVideoUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/SciFireCoverVideo.mp4"
                     },
                     {
                         "itemType": "ItemType.urlImagePlayableReference",
@@ -101,7 +107,9 @@
                         "platforms": "(iOS | Android)",
                         "callToActionText": "Try It",
                         "callToActionUrl": "https://celebrateit.it/sciFire/",
-                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMCover.gif"
+                        "itemCoverBackgroundType" : "video",
+                        "backgroundCoverImageUrl": "",
+                        "backgroundCoverVideoUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMCover.mp4"
                     }
                 ]
             },
@@ -111,7 +119,7 @@
                 "projectItemsData" : [
                     {
                         "itemType": "ItemType.urlImagePlayableReference",
-                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.png",
+                        "mediaPreviewUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/logo.jpg",
                         "imagePlayableReferenceUrl": "https://www.youtube.com/watch?v=kvMvK_FZabo&ab_channel=LuciaPatrono",
                         "title": "Foods & Roots",
                         "description": "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
@@ -124,7 +132,9 @@
                         "platforms": "(Windows)",
                         "callToActionText": "GGJ Page",
                         "callToActionUrl": "https://globalgamejam.org/2023/games/foods-roots-7",
-                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/GGJFR.png"
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/GGJFR.jpg",
+                        "backgroundCoverVideoUrl" : ""
                     },
                     {
                         "itemType" : "ItemType.urlImage",
@@ -141,7 +151,9 @@
                         "platforms": "(Figma)",
                         "callToActionText": "Try Figma Demo",
                         "callToActionUrl": "https://www.figma.com/proto/lkGJBYXgwYSFmFQbZrc7w9/Prototipo-Interattivo-Finale---Alta-fedelt%C3%A0?node-id=19%3A425&starting-point-node-id=19%3A425",
-                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmasheet.jpg"
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmasheet.jpg",
+                        "backgroundCoverVideoUrl" : ""
                     },
                     {
                         "itemType": "ItemType.urlImagePlayableReference",
@@ -158,7 +170,9 @@
                         "platforms" : "(Web)",
                         "callToActionText" : "Web App",
                         "callToActionUrl" : "https://celebrateit.it/",
-                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrateCover.jpg"
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrateCover.jpg",
+                        "backgroundCoverVideoUrl" : ""
                     }
                 ]
             }

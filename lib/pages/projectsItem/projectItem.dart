@@ -36,12 +36,27 @@ class ProjectItem extends StatelessWidget {
           children: [
             // cover project background 
             Positioned.fill(
-              child: projectItemData.backgroundCoverImgData.isEmpty ? Container() :
+              child: projectItemData.backgroundCoverImgData.isNotEmpty ? 
+              
               Image.memory(
                   projectItemData.backgroundCoverImgData,
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
-              ),
+              ) : 
+
+              projectItemData.backgroundType == ItemCoverBackgroundType.video ?
+              SizedBox.expand(
+                child: FittedBox(
+                  alignment: Alignment.center,
+                  fit: BoxFit.cover,
+                  child: SizedBox(
+                    height: projectItemData.itemBackgroundVideoController.value.size.height,
+                    width: projectItemData.itemBackgroundVideoController.value.size.width,
+                    child: VideoPlayerWidget(controller: projectItemData.itemBackgroundVideoController)
+                  )
+                ),
+              ) :
+              Container()
             ),
 
             // cover image background color filter
