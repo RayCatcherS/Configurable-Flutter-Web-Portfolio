@@ -387,24 +387,52 @@ class ProjectItem extends StatelessWidget {
         // call to action
         Column(
           children: [
-            if(projectItemData.callToActionText != "")
+            if(projectItemData.callToAction.isNotEmpty)
             SizedBox(height: kDefaultPadding * 5),
-            if(projectItemData.callToActionText != "")
-            MaterialButton(
-              color: Colors.purple[900],
-              child: Padding(
-                padding: const EdgeInsets.all(kDefaultPadding * 1),
-                child: Text(
-                  projectItemData.callToActionText,
-                  style: FontStyles.melodiLightButtonText,
-                ),
-              ),
-              onPressed: () {
-                AppFunctions.openPageInANewTab(projectItemData.callToActionUrl);
-              },
-            )
+            if(projectItemData.callToAction.isNotEmpty)
+            buildCallToActions()
+            
           ],
         )
+      ],
+    );
+  }
+
+  Widget buildCallToActions() {
+
+    projectItemData.callToAction;
+    List<Widget> buttons = [];
+
+    for(int i = 0; i < projectItemData.callToAction.length; i++) {
+
+      buttons.add(
+        MaterialButton(
+          color: Colors.purple[900],
+          child: Padding(
+            padding: const EdgeInsets.all(kDefaultPadding * 1),
+            child: Text(
+              projectItemData.callToAction[i].callToActionText,
+              style: FontStyles.melodiLightButtonText,
+            ),
+          ),
+          onPressed: () {
+            AppFunctions.openPageInANewTab(projectItemData.callToAction[i].callToActionUrl);
+          },
+        )
+      );
+
+    }
+    
+    return Row(
+      children: [
+        Expanded(
+          child: Wrap(
+            alignment: WrapAlignment.start,
+            children: buttons,
+            spacing: kDefaultPadding * 2,
+            runSpacing: kDefaultPadding * 2,
+          ),
+        ),
       ],
     );
   }

@@ -27,10 +27,8 @@ class ProjectItemData {
   late final VideoPlayerController itemBackgroundVideoController;
 
 
-
-
-  late final String? _callToActionText; 
-  late final String? _callToActionUrl;
+  
+  late final List<CallToAction> _callToAction;
 
 
   late final ItemType _itemType;
@@ -65,9 +63,7 @@ class ProjectItemData {
   String? get backgroundCoverVideoUrl {return _backgroundCoverVideoUrl;}
   
 
-
-  String get callToActionText {return _callToActionText == null ? "" : _callToActionText!;}
-  String get callToActionUrl {return _callToActionUrl == null ? "" : _callToActionUrl!;}
+  List<CallToAction> get callToAction {return _callToAction;}
 
   String get mediaPreviewUrl {return _mediaPreviewUrl!;}
   String get imagePlayableReferenceUrl {return _imagePlayableReferenceUrl!;}
@@ -88,8 +84,7 @@ class ProjectItemData {
     required String backgroundCoverVideoUrl,
   
 
-    String? callToActionText,
-    String? callToActionUrl,
+    required List<CallToAction> callToAction,
 
     String? mediaPreviewUrl,
     String? imagePlayableReferenceUrl
@@ -109,8 +104,7 @@ class ProjectItemData {
     _backgroundCoverVideoUrl = backgroundCoverVideoUrl;
 
 
-    _callToActionText = callToActionText; 
-    _callToActionUrl = callToActionUrl;
+    _callToAction = callToAction;
 
 
     _itemType = itemType;
@@ -127,6 +121,21 @@ class ProjectItemData {
   }
 }
 
+class CallToAction {
+  late final String _callToActionText;
+  late final String _callToActionUrl;
+
+  String get callToActionText {return _callToActionText;}
+  String get callToActionUrl {return _callToActionUrl;}
+
+  CallToAction({
+    required callToActionText,
+    required callToActionUrl
+  }) {
+    _callToActionText = callToActionText;
+    _callToActionUrl = callToActionUrl;
+  }
+}
 
 
 class Company {

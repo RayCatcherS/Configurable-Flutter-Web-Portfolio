@@ -39,12 +39,20 @@ class ProjectGroup {
         itemCoverBackgroundType = ItemCoverBackgroundType.video;
       }
 
+      List<CallToAction> callToActions = [];
+      for(int j = 0; j < data["projectItemsData"][i]["callToActions"].length; j++) {
+        callToActions.add(
+          CallToAction(
+            callToActionText: data["projectItemsData"][i]["callToActions"][j]["callToActionText"],
+            callToActionUrl: data["projectItemsData"][i]["callToActions"][j]["callToActionUrl"]
+            )
+        );
+      } 
       _projectItemDataList.add(
         ProjectItemData(
           mediaPreviewUrl: data["projectItemsData"][i]["mediaPreviewUrl"],
           imagePlayableReferenceUrl: data["projectItemsData"][i]["imagePlayableReferenceUrl"],
-          callToActionText: data["projectItemsData"][i]["callToActionText"],
-          callToActionUrl: data["projectItemsData"][i]["callToActionUrl"],
+          callToAction: callToActions,
 
           title: data["projectItemsData"][i]["title"],
           description: data["projectItemsData"][i]["description"],

@@ -6,7 +6,7 @@
             "coverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.jpg",
             "personalEmail" : "mailto:romanelli1996@gmail.com",
             "linkedinURL" : "https://www.linkedin.com/in/stefano-romanelli-bb80a6108",
-            "coverDescription1" : "Hello! Il mio nome è Stefano e sono attualmente un studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
+            "coverDescription1" : "Hello! Il mio nome è Stefano e sono uno studente laureando in informatica. Attualmente sviluppo videogames su richiesta e nel tempo libero.",
             "coverDescription2" : "In questo portfolio puoi trovare i miei progetti professionali e personali a cui ho lavorato."
         },
         "aboutMe" : {
@@ -36,14 +36,18 @@
                         },
                         "professionalRoles" : "Software Enginer | Programmer | Level Design | 3D Artist",
                         "platforms" : "(iOS | Android)",
-                        "callToActionText" : "Article / Download",
-                        "callToActionUrl" : "https://www.cvbf.net/news/my-clinical-trial-center-serious-videogame",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Article / Download",
+                                "callToActionUrl" : "https://www.cvbf.net/news/my-clinical-trial-center-serious-videogame"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "image",
                         "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/professionalProjectImages/MCTC/MCTCCoverImage.jpg",
                         "backgroundCoverVideoUrl" : ""
                     }
                 ]
-            }, 
+            },
             {
                 "projectGroupName" : "Personal Projects",
                 "projectGroupDescription" : "A sample of the personal game projects that I've worked",
@@ -61,8 +65,39 @@
                         },
                         "professionalRoles" : "Software Enginer | Programmer | AI | Level Design | 3D Artist",
                         "platforms" : "(Windows)",
-                        "callToActionText" : "Github / Download",
-                        "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Github / Download",
+                                "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung"
+                            }
+                        ],
+                        "itemCoverBackgroundType" : "image",
+                        "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.jpg",
+                        "backgroundCoverVideoUrl" : ""
+                    },
+                    {
+                        "itemType" : "ItemType.urlVideo",
+                        "mediaPreviewUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/Vergeltung/control.mp4",
+                        "imagePlayableReferenceUrl" : "",
+                        "title" : "Matrix Factory",
+                        "description" : "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
+                        "gameAssetImageUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/Vergeltung/VergeltungAsset.png",
+                        "company" : {
+                            "companyName" : "University Project",
+                            "companyUrl" : ""
+                        },
+                        "professionalRoles" : "Software Enginer | Programmer | AI | Level Design | 3D Artist",
+                        "platforms" : "(Android, Web)",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Play Store",
+                                "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung"
+                            },
+                            {
+                                "callToActionText" : "Itch.io",
+                                "callToActionUrl" : "https://github.com/RayCatcherS/Vergeltung"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "image",
                         "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/Immagine9.jpg",
                         "backgroundCoverVideoUrl" : ""
@@ -86,8 +121,12 @@
                         },
                         "professionalRoles": "Programmer | Game Design | Level Design | 3D Artist",
                         "platforms": "(iOS | Android)",
-                        "callToActionText": "Try It",
-                        "callToActionUrl": "https://celebrateit.it/sciFire/",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Try It",
+                                "callToActionUrl" : "https://celebrateit.it/sciFire/"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "video",
                         "backgroundCoverImageUrl": "",
                         "backgroundCoverVideoUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/SciFire/SciFireCoverVideo.mp4"
@@ -105,8 +144,12 @@
                         },
                         "professionalRoles": "Programmer | 3D Artist | Level Design",
                         "platforms": "(iOS | Android)",
-                        "callToActionText": "Try It",
-                        "callToActionUrl": "https://celebrateit.it/sciFire/",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Try It",
+                                "callToActionUrl" : "https://celebrateit.it/sciFire/"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "video",
                         "backgroundCoverImageUrl": "",
                         "backgroundCoverVideoUrl" : "https://stefanoromanelli.it/remoteAssets/personalProjectImages/7AM/7AMCover.mp4"
@@ -130,8 +173,12 @@
                         },
                         "professionalRoles": "Game Effects | Game Programming | Game Design",
                         "platforms": "(Windows)",
-                        "callToActionText": "GGJ Page",
-                        "callToActionUrl": "https://globalgamejam.org/2023/games/foods-roots-7",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "GGJ Page",
+                                "callToActionUrl" : "https://globalgamejam.org/2023/games/foods-roots-7"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "image",
                         "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/GGJ/FoodsRoots/GGJFR.jpg",
                         "backgroundCoverVideoUrl" : ""
@@ -149,8 +196,12 @@
                         },
                         "professionalRoles": "User Interface Design | User Centered Design",
                         "platforms": "(Figma)",
-                        "callToActionText": "Try Figma Demo",
-                        "callToActionUrl": "https://www.figma.com/proto/lkGJBYXgwYSFmFQbZrc7w9/Prototipo-Interattivo-Finale---Alta-fedelt%C3%A0?node-id=19%3A425&starting-point-node-id=19%3A425",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Try Figma Demo",
+                                "callToActionUrl" : "https://www.figma.com/proto/lkGJBYXgwYSFmFQbZrc7w9/Prototipo-Interattivo-Finale---Alta-fedelt%C3%A0?node-id=19%3A425&starting-point-node-id=19%3A425"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "image",
                         "backgroundCoverImageUrl": "https://stefanoromanelli.it/remoteAssets/otherProjects/UniversityProjects/figmasheet.jpg",
                         "backgroundCoverVideoUrl" : ""
@@ -168,8 +219,12 @@
                         },
                         "professionalRoles" : "Front-end Dev | Back-end Dev",
                         "platforms" : "(Web)",
-                        "callToActionText" : "Web App",
-                        "callToActionUrl" : "https://celebrateit.it/",
+                        "callToActions" : [
+                            {
+                                "callToActionText" : "Web App",
+                                "callToActionUrl" : "https://celebrateit.it/"
+                            }
+                        ],
                         "itemCoverBackgroundType" : "image",
                         "backgroundCoverImageUrl" : "https://stefanoromanelli.it/remoteAssets/otherProjects/Celebrate/celebrateCover.jpg",
                         "backgroundCoverVideoUrl" : ""
