@@ -256,8 +256,10 @@ class ProjectItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Center(
-              child: VideoPlayerWidget(
-                controller: projectItemData.videoMediaPreviewController,
+              child: Container(
+                child: VideoPlayerWidget(
+                  controller: projectItemData.videoMediaPreviewController,
+                ),
               ) 
             ),
           ],
