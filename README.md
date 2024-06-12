@@ -1,3 +1,6 @@
+# App 
+http://stefanoromanelli.it
+
 # Flutter-Web-Portfolio
 For the necessity to publish my projects on a personal portfolio, I have created a web app (Flutter Web) with a custom layout that is easy to update. The web app has been designed to be configured from the JSON configuration file mediaAssetsConfig.json, which contains the structure and the contents (media) of the web app. The configuration file mediaAssetsConfig.json allows for quick insertion of content into the portfolio (layout, text, media). The project can be freely used, regards!”
 
